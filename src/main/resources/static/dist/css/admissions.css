@@ -1,0 +1,588 @@
+*,
+*:before,
+*:after {
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+@font-face {
+    font-family: 'Nexa';
+    src: url('https://vinschool.edu.vn/vinschool-one/assets/fonts/font-vinschool-app/SVN-NEXA-BOLD.TTF') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('https://vinschool.edu.vn/vinschool-one/assets/fonts/font-vinschool-app/SVN-GOTHAM-ULTRA.OTF');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block
+}
+
+@font-face {
+    font-family: 'GothamRegular';
+    src: url('https://vinschool.edu.vn/vinschool-one/assets/fonts/font-vinschool-app/SVN-GOTHAM-REGULAR.OTF');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block
+}
+
+body,
+html {
+    font-size: 16px;
+    color: #fff;
+    font-family: 'Nexa';
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow-x: hidden
+}
+
+img {
+    max-width: 100%;
+    height: auto
+}
+
+ul,
+li {
+    margin: 0px;
+    list-style-type: none
+}
+
+.wrapp-banner {
+    background: url("https://vinschool.edu.vn/vinschool-one/assets/img/vinschool-app/nen.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 85px;
+    padding-bottom: 116px
+}
+
+.wrapp-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #8B3B8E;
+    opacity: 0.19
+}
+
+.wrapp-banner>div {
+    position: relative;
+    z-index: 1
+}
+
+@media (min-width:1400px) {
+    .wrapp-banner__left {
+        width: calc(50% - (100% - 1088px)/2)
+    }
+}
+
+.wrapp-banner__left {
+    width: calc(50% - (100% - 1088px)/2 + 14px);
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: -34px
+}
+
+.wrapp-banner__left .title {
+    font-size: 60px;
+    line-height: 83px;
+    font-family: 'Gotham'
+}
+
+.wrapp-banner__left .sub-title {
+    display: inline-block;
+    padding: 4px 18px;
+    background: #194D91;
+    font-size: 25px;
+    color: #F5A81C;
+    margin-bottom: 30px
+}
+
+.wrapp-banner__left .list-item .item {
+    display: flex
+}
+
+.wrapp-banner__left .list-item .item img {
+    width: 25px;
+    padding: 5px;
+    height: 25px;
+    margin-right: 10px;
+    background: #F5A82F
+}
+
+.wrapp-banner__left .list-item .item .item-content {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 500;
+    margin-bottom: 9px
+}
+
+.wrapp-banner__right {
+    width: 50%;
+    padding-right: 15px
+}
+
+@media (min-width:1400px) {
+    .wrapp-banner__right img {
+        width: 675px
+    }
+}
+
+.wrapp-banner .download-app img {
+    margin-right: 20px
+}
+
+.wrapp-banner .download-app h2 {
+    font-size: 40px;
+    line-height: 56px;
+    font-family: 'Gotham'
+}
+
+.list-step {
+    padding-top: 152px;
+    padding-bottom: 340px;
+    background: transparent linear-gradient(180deg, #89ABDA00 0%, #38A3E2 17%, #26B1EF 46%, #3EB9D3 100%);
+    margin-top: -150px;
+    z-index: 2;
+    position: relative
+}
+
+.list-step .step-item {
+    position: relative
+}
+
+.list-step .step-item a {
+    width: 135px;
+    height: 45px;
+    background: #F5A82F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+    line-height: 29px;
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translate(-50%, 0)
+}
+
+.list-step .step-item .step-item__content {
+    border: 2px solid #FFF;
+    display: flex;
+    padding: 96px 60px 74px 60px;
+    justify-content: space-between
+}
+
+.list-step .step-item .step-item__content-img img {
+    width: 160px
+}
+
+.list-step .step-item .step-item__content-img p {
+    margin-bottom: 0;
+    text-align: center
+}
+
+.list-step .step-item .step-item__content-img p.mt__10 {
+    margin-top: 10px
+}
+
+.list-step .step-item.pr__12 {
+    padding-right: 12px
+}
+
+.list-step .step-item.step-item__right {
+    padding-left: 12px;
+    margin-bottom: 60px;
+}
+
+.list-step .step-item.step-item__right .step-item__content {
+    padding-top: 44px;
+    padding-bottom: 37px;
+    align-items: center;
+    justify-content: end
+}
+
+.list-step .step-item.step-item__right .step-item__content .step-item__content-img img {
+    width: 132px
+}
+
+.list-step .step-item.step-item__right .step-item__content .step-item__content-img p {
+    text-align: left;
+    margin-left: 30px;
+    line-height: 21px;
+    margin-bottom: 20px;
+    font-family: 'GothamRegular'
+}
+
+.list-step .step-item.step-item__right .step-item__content .step-item__content-img p span {
+    color: #1B4480;
+    font-family: 'Gotham'
+}
+
+.contacts {
+    margin-top: -280px;
+    position: relative;
+    z-index: 3;
+    background: linear-gradient(180deg, #0E2F6000 0%, #1B4480F7 89%, #1B4480 100%);
+    padding-bottom: 56px
+}
+
+.contacts h3 {
+    font-family: 'Gotham';
+    font-size: 30px;
+    line-height: 42px;
+    text-align: center;
+    margin-bottom: 20px
+}
+
+.contacts .hot-line {
+    display: flex;
+    align-items: center;
+    margin-left: 110px;
+    margin-bottom: 25px
+}
+
+.contacts .hot-line:last-child {
+    margin-bottom: 0
+}
+
+.contacts .hot-line img {
+    width: 71px
+}
+
+.contacts .hot-line p {
+    font-family: 'Gotham';
+    font-size: 35px;
+    line-height: 56px;
+    color: #F5A82F;
+    margin-left: 20px
+}
+
+.text-uppercase-mobile,
+.row-mobile {
+    display: none
+}
+
+.step-item__content-img.mobile {
+    display: none
+}
+
+.step-item__content-img.desktop {
+    display: block
+}
+
+.link-video {
+    font-size: 25px;
+    line-height: 26px;
+    font-weight: 500;
+    text-align: center;
+    padding: 0px 25px 0px 25px;
+    text-transform: uppercase;
+    z-index: 99;
+    margin-bottom: 30px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width:992px) {
+    .wrapp-banner {
+        padding-top: 70px
+    }
+
+    .wrapp-banner__left {
+        text-align: center;
+        width: calc(100vw - 16px);
+        margin-right: auto
+    }
+
+    .wrapp-banner__left .title {
+        font-size: 38px;
+        line-height: 53px
+    }
+
+    .wrapp-banner__left .sub-title {
+        font-size: 16px;
+        line-height: 23px;
+        width: 100%
+    }
+
+    .list-item {
+        text-align: left;
+        margin-bottom: 20px
+    }
+
+    .wrapp-banner__left .list-item .item .item-content {
+        font-size: 16px;
+        line-height: 23px;
+        font-weight: normal;
+        margin-bottom: 10px
+    }
+
+    .wrapp-banner__left .list-item .item:last-child img {
+        margin-top: 6px
+    }
+
+    .wrapp-banner__right {
+        width: 100%;
+        padding-right: 20px;
+        padding-left: 20px
+    }
+
+    .download-app img {
+        max-width: 56px;
+        margin-right: 7px
+    }
+
+    .download-app h2 {
+        font-size: 20px;
+        line-height: 28px;
+        font-family: 'Gotham'
+    }
+
+    .download-app {
+        margin-top: 40px;
+        margin-bottom: 7px
+    }
+
+    .list-step {
+        padding-top: 35px;
+        padding-bottom: 220px;
+        background: transparent linear-gradient(180deg, #89ABDA00 0%, #38A3E2 10%, #26B1EF 46%, #3EB9D3 100%) 0% 0% no-repeat padding-box
+    }
+
+    .list-step .step-item.pr__12 {
+        padding-right: 0;
+        margin-bottom: 70px
+    }
+
+    .list-step .step-item.step-item__right {
+        padding-left: 0
+    }
+
+    .list-step .step-item .step-item__content {
+        padding: 54px 16px 46px 16px
+    }
+
+    .step-item__content-img {
+        width: calc(50% - 8px)
+    }
+
+    .contacts h3 {
+        font-size: 20px;
+        line-height: 28px;
+        font-weight: normal
+    }
+
+    .contacts .hot-line {
+        margin-left: 45px;
+        margin-bottom: 0
+    }
+
+    .contacts .hot-line img {
+        max-width: 45px
+    }
+
+    .contacts .hot-line p {
+        font-size: 16px
+    }
+
+    .text-uppercase-pc {
+        display: none !important
+    }
+
+    .contacts .hot-line p.text-uppercase-mobile {
+        display: block;
+        line-height: 19px;
+        font-family: 'Gotham'
+    }
+
+    .contacts .hot-line p.text-uppercase-mobile span {
+        font-family: 'GothamRegular'
+    }
+
+    .img-hotline {
+        opacity: 0 !important
+    }
+
+    .text-uppercase-mobile span {
+        font-size: 14px
+    }
+
+    .row-mobile {
+        display: block
+    }
+
+    .row-desktop {
+        display: none
+    }
+
+    .app-icon {
+        margin-bottom: 70px
+    }
+
+    .list-step .step-item.step-item__right .step-item__content .step-item__content-img p {
+        margin-left: 5px
+    }
+
+    .step-item__content-img.mobile {
+        display: block
+    }
+
+    .step-item__content-img.desktop {
+        display: none
+    }
+
+    .contacts {
+        padding-bottom: 0;
+        background: transparent linear-gradient(180deg, #0E2F6000 0%, #1B4480F7 89%, #1B4480 100%) 0% 0% no-repeat padding-box;
+        margin-top: -220px;
+        padding-top: 50px
+    }
+
+    .contacts .hot-line:last-child {
+        padding-bottom: 20px
+    }
+
+    .contact-title span {
+        display: inline-block
+    }
+
+    .link-video {
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width:320px) {
+    .list-step {
+        padding-bottom: 280px
+    }
+
+    .contacts {
+        margin-top: -270px;
+        padding-top: 50px
+    }
+
+    .contact-title span {
+        display: inline
+    }
+
+    .contacts .hot-line {
+        margin-left: 20px
+    }
+
+    .wrapp-banner__left .title {
+        font-size: 30px
+    }
+
+    .wrapp-banner__left .sub-title {
+        font-size: 13px
+    }
+
+    .step-item__content-img.mobile {
+        margin-left: 10px
+    }
+
+    .download-app h2 {
+        font-size: 18px
+    }
+
+    .list-step .step-item a {
+        width: 110px;
+        height: 35px;
+        font-size: 16px;
+        top: -18px
+    }
+
+    .link-video {
+        font-size: 16px;
+        line-height: 23px;
+        margin-bottom: 20px;
+    }
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+    .wrapp-banner__right img {
+        margin-top: 30px
+    }
+
+    .list-step .step-item .step-item__content {
+        height: 390px;
+        align-items: center
+    }
+
+    .contacts {
+        padding-top: 40px;
+        margin-top: -218px
+    }
+}
+
+@media all and (device-width: 1024px) and (device-height: 768px) and (orientation:landscape) {
+    .wrapp-banner__left .sub-title {
+        font-size: 20px
+    }
+
+    .wrapp-banner__left {
+        width: calc(50vw - 16px)
+    }
+
+    .wrapp-banner__left .title {
+        font-size: 40px
+    }
+
+    .wrapp-banner .download-app h2 {
+        font-size: 30px
+    }
+
+    .contacts h3 {
+        font-size: 27px
+    }
+
+    .contacts .hot-line p {
+        font-size: 24px
+    }
+
+    .step-item__content-img {
+        width: calc(50% - 8px)
+    }
+
+    .list-step .step-item .step-item__content {
+        height: 390px;
+        align-items: center
+    }
+
+    .contacts .hot-line img {
+        width: 55px
+    }
+}
+
+.container.link-video a {
+    color: #FFF;
+    text-decoration: underline;
+}
