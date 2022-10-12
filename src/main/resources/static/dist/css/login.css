@@ -1,25 +1,276 @@
-.card-body{
-    background-color: #7a989b ;
+/* =======================================================================
+Template Name: Youtubers
+Author:  SmartEye Technologies
+Author URI: www.smarteyeapps.com
+Version: 1.0
+coder name:Prabin Raja
+Description: This Template is created for Youtubers
+======================================================================= */
+/* ===================================== Import Variables ================================== */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Arimo:300,400,400italic,700,700italic);
+/* ===================================== Basic CSS ==================================== */
+* {
+  margin: 0px;
+  padding: 0px;
+  list-style: none; 
 }
-.gradient-custom-2 {
-    /* fallback for old browsers */
-    background: #fccb90;
+
+body{
+  font-family: "Open Sans";
+  font-weight: 700;
+}
+
+img {
+  max-width: 100%; 
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: #444; 
+}
+
+a:hover {
+  color: #444; 
+}
+
+ul {
+  margin-bottom: 0;
+  padding-left: 0; 
+}
+
+ol,ul{
+  margin:0px;
+  padding:0px;
+}
+
+a:hover,
+a:focus,
+input,
+textarea {
+  text-decoration: none;
+  outline: none; 
+
+}
+a:hover{
+    color: #086d66;
+}
+
+.form-02-main{
+  background:url(../css/vintd2.jpg);
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center;
+  position:relative;
+  z-index:2;
+  overflow:hidden;
+}
+
+._lk_de{
+  
+  background-repeat:no-repeat;
+  background-size:cover;
+  padding:40px 0px;
+  position:relative;
+
+}
+
+.form-03-main{
+  width:500px;
+  display:block;
+  margin:20px auto;
+  padding:25px 50px 25px;
+  background:rgba(255,255,255,0.8);
+  border-radius:6px;
+  z-index:9;
+}
+
+.logo{
+  display:block;
+  margin:20px auto;
+  width:100px;
+  height:100px;
+  background-color: #202744;
+  padding-top: 2.5%;
+  padding-bottom: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  border-radius: 50%;
+}
+.form-group{
+  padding:20px 0px;
+  display:inline-block;
+  width:100%;
+  position:relative;
+}
+
+.form-group p{
+  margin:0px;
+}
+.form-group h4{
+    font-weight: 900;
+}
+.form-control{
+  min-height:45px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 10px 15px;
+  border-radius:20px;
+  border:1px solid#202744;
+}
+
+.checkbox{
+  display:flex;
+  justify-content:space-around;
+}
+
+._btn_04 {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 0px;
+    background: #202744;;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+}
+
+._btn_04 a{
+  font-size:15px;
+  color:#fff;
+}
+
+._social_04{
+  display:block;
+  width:100%;
+  padding:15px 0px;
+  text-align:center; 
+}
+
+._social_04 ol li{
+  display:inline-block;
+  width:40px;
+  height:40px;
+  text-align:center;
+  line-height:40px;
+  transition:0.2s;
+  background:#fff;
+  border-radius:50px;
+  border:1px solid#2b3990;
+  margin:0 0 0 10px;
+  transition:0.2s;
+}
+
+._social_04 ol li:nth-child(1):hover{
+  background:#3b5998;
+  border:1px solid#3b5998;
+  color:#fff;
+  transition:0.2s;
+}
+
+._social_04 ol li:nth-child(2):hover{
+  background:#00aced;
+  border:1px solid#00aced;
+  color:#fff;
+  transition:0.2s;
+}
+
+._social_04 ol li:nth-child(3):hover{
+  background:#c32f10;
+  border:1px solid#c32f10;
+  color:#fff;
+  transition:0.2s;
+}
+
+._social_04 ol li:nth-child(4):hover{
+  background:#E1306C;
+  border:1px solid#E1306C;
+  color:#fff;
+  transition:0.2s;
+}
+
+._social_04 ol li:nth-child(5):hover{
+  background:#0177b5;
+  border:1px solid#0177b5;
+  color:#fff;
+  transition:0.2s;
+}
+
+._social_04 ol li:hover,._social_04 ol li:hover i{
+  color:#fff;
+}
+
+._social_04 ol li i:nth-child(1):hover{
+  color:#fff;
+}
+
+._social_04 ol li i{
+  font-size:15px;
+  color:#2b3990;
+}
+
+.nm_lk{
+  text-align:center;
+}
+
+@media screen and (max-width: 600px) {
+  .form-03-main{
+    width: 100%;
+  }
+}
+
+.form-group input{
+    padding-left: 20px;
+}
+.form-group h4{
+    font-size: 30px;
+}
+
+/*Modal*/
+.forget-pass{
+    height: 50px;
+}
+.change-pass{
+    height: 100px;
+}
+.change-pass input{
+    height: 80%;
+    padding: 2%;
+    border: 1px solid #0d4d5d;
+    color: #0d4d5d;;
+    border-radius: 5px;
+    padding-left: 20px !important;
+    margin: 1% 0;
     
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+}
+.change-pass .col-2.text-center{
+    padding: 1% 1%;
+}
+.change-pass i{
+    font-size: 40px;
+    padding: 2% !important;
+    width: 100%;
+    margin: 2% 0;
+}
+/**/
+.forget-pass input{
+    height: 100%;
+    padding: 2%;
+    border: 1px solid #0d4d5d;
+    color: #0d4d5d;;
+    border-radius: 5px;
+    padding-left: 20px !important;
     
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
-    }
-    
-    @media (min-width: 768px) {
-    .gradient-form {
-    height: 100vh !important;
-    }
-    }
-    @media (min-width: 769px) {
-    .gradient-custom-2 {
-    border-top-right-radius: .3rem;
-    border-bottom-right-radius: .3rem;
-    }
-    }
+}
+.forget-pass i{
+    font-size: 40px;
+    padding: 2%;
+    width: 100%;
+}
+.modal-content{
+    background-color: #287d6f;
+}
+.modal-title{
+    font-weight: 900;
+}

@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* .comment .user-comment-rate .center{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+.center .stars {
+  height: 150px;
+  width: 500px;
+  text-align: center;
+  margin: auto;
+}
+
+.stars input {
+  display: none;
+}
+
+.stars label {
+  float: right;
+  font-size: 100px;
+  color: lightgrey;
+  margin: 0 5px;
+  text-shadow: 1px 1px #bbb;
+}
+
+.stars label:before {
+  content: '★';
+}
+
+.stars input:checked~label {
+  color: gold;
+  text-shadow: 1px 1px #c60;
+}
+
+.stars:not(:checked)>label:hover,
+.stars:not(:checked)>label:hover~label {
+  color: gold;
+}
+
+.stars input:checked>label:hover,
+.stars input:checked>label:hover~label {
+  color: gold;
+  text-shadow: 1px 1px goldenrod;
+}
+
+.stars .result:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  left: 50%;
+  transform: translateX(-47%);
+  bottom: -30px;
+  font-size: 30px;
+  font-weight: 500;
+  color: gold;
+  font-family: 'Poppins', sans-serif;
+  display: none;
+}
+
+.stars input:checked~.result:before {
+  display: block;
+}
+
+.stars #five:checked~.result:before {
+  content: "Rất tốt";
+}
+
+.stars #four:checked~.result:before {
+  content: "Tốt";
+}
+
+.stars #three:checked~.result:before {
+  content: "Bình thường";
+}
+
+.stars #two:checked~.result:before {
+  content: "Tệ";
+}
+
+.stars #one:checked~.result:before {
+  content: "Rất tệ";
+}
+
+@media (max-width:768px) {
+  .stars label {
+    float: right;
+    font-size: 50px;
+    color: lightgrey;
+    margin: 0 15px;
+    text-shadow: 1px 1px #bbb;
+    margin-bottom: 2%;
+  }
+
+  .center {
+    height: 100px;
+    width: 100%;
+    margin: auto;
+    padding: 1%;
+
+    margin-bottom: 2%;
+  }
+
+  .center .stars {
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    padding: 2%;
+    margin-bottom: 2%;
+  }
+  .stars .result:before{
+    font-size: 18px;
+  }
+}
