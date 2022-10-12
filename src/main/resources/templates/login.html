@@ -1,77 +1,193 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
-    <link rel="stylesheet" href="dist/css/login.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
     <link rel="shortcut icon" href="images/logo/favicon.ico" type="image/x-icon">
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="dist/css/login.css" rel="stylesheet">
+
+    <script src="dist/js/jQuery/jquery.slim.min.js"></script>
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
+    <title>Đăng nhập</title>
 </head>
 
 <body>
-    <section class="h-100 gradient-form" style="background-color: #eee;">
-        <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-xl-10">
-                    <div class="card rounded-3 text-black">
-                        <div class="row g-0">
-                            <div class="col-lg-6">
-                                <div class="card-body p-md-5 mx-md-4">
-                                    <div class="text-center">
-                                        <img src="images/logo/logo.png" alt="Logo" height="100" width="100">
-                                        <h4 class="mt-1 mb-5 pb-1">Trường mầm non Vinschool TP Thủ Đức</h4>
+    <!-- The Modal Forgot Password -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Quên mật khẩu</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row forget-pass">
+                        <div class="col-2 text-center">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-10">
+                            <input type="text" class="input-group"
+                                placeholder="Nhập Email đăng ký tài khoản">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal"  data-toggle="modal" data-target="#modalConfirmcode" class="btn btn-info" >Xác nhận</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- The Modal Code Confirm -->
+    <div class="modal" id="modalConfirmcode">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Xác minh </h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row forget-pass">
+                        <div class="col-2 text-center">
+                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-10">
+                            <input id="codeconfirm" type="text" class="input-group"
+                                placeholder="Nhập mã xác minh">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" data-toggle="modal" data-target="#changePass" class="btn btn-info">Xác minh</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Change Pass -->
+    <div class="modal" id="changePass">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Đổi mật khẩu</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="row change-pass">
+                        <div class="col-2 text-center">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-10">
+                            <input id="pass" type="text" class="input-group"
+                                placeholder="Nhập mật khẩu mới">
+                        </div>
+                        <div class="col-2 text-center">
+                            <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                        </div>
+                        <div class="col-10">
+                            <input id="repass" type="text" class="input-group"
+                                placeholder="Xác nhận mật khẩu">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-info">Lưu</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <section class="form-02-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="_lk_de">
+                        <div class="form-03-main">
+                            <div class="logo">
+                                <img src="images/logo/logo.png">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control _ge_de_ol"
+                                    placeholder="Nhập Email hoặc số điện thoại" required="" aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control _ge_de_ol"
+                                    placeholder="Nhập mật khẩu" required="" aria-required="true">
+                            </div>
+
+                            <div class="checkbox form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="">
+                                    <label class="form-check-label" for="">
+                                        Lưu mật khẩu
+                                    </label>
+                                </div>
+                                <a href="#" data-toggle="modal" data-target="#myModal">Quên mật khẩu</a>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="_btn_04">
+                                    <a href="#">Đăng nhập</a>
+                                </div>
+                            </div>
+
+                            <div class="form-group nm_lk ml-0 mr-0">
+                                <div class="row">
+                                    <div class="col-4 float-left">
+                                        <p><a href="index.html">Quay về</a></p>
                                     </div>
-
-                                    <form>
-                                        <p>Please login to your account</p>
-
-                                        <div class="form-outline mb-4">
-                                            <input type="email" id="form2Example11" class="form-control"
-                                                placeholder="Phone number or email address" />
-                                            <label class="form-label" for="form2Example11">Username</label>
-                                        </div>
-
-                                        <div class="form-outline mb-4">
-                                            <input type="password" id="form2Example22" class="form-control" />
-                                            <label class="form-label" for="form2Example22">Password</label>
-                                        </div>
-
-                                        <div class="text-center pt-1 mb-5 pb-1">
-                                            <button class="login btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
-                                                type="button">Login</button>
-                                            <a class="text-muted" href="#!">Forgot password?</a>
-                                        </div>
-
-                                        <div class="d-flex align-items-center justify-content-center pb-4">
-                                            <p class="mb-0 me-2">Don't have an account?</p>
-                                            <button type="button" class="btn btn-outline-danger">Create new</button>
-                                        </div>
-
-                                    </form>
-
+                                    <div class="col-8 float-right">
+                                        <p><a href="signup.html">Tạo tài khoản mới</a></p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                                    <h4 class="mb-4">We are more than just a company</h4>
-                                    <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                                        do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                </div>
-                            </div>
+
+                            <!-- <div class="form-group pt-0">
+                  <div class="_social_04">
+                    <ol>
+                      <li><i class="fa fa-facebook"></i></li>
+                      <li><i class="fa fa-twitter"></i></li>
+                      <li><i class="fa fa-google-plus"></i></li>
+                      <li><i class="fa fa-instagram"></i></li>
+                      <li><i class="fa fa-linkedin"></i></li>
+                    </ol>
+                  </div>
+                </div> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <script src="dist/js/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
