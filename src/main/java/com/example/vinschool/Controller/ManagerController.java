@@ -1,7 +1,6 @@
 package com.example.vinschool.Controller;
 
 import org.springframework.stereotype.Controller;
-<<<<<<< HEAD
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -30,9 +29,4 @@ public class ManagerController extends Common {
     public String managerUser(){
         return "manager-user";
     }
-=======
-
-@Controller
-public class ManagerController extends Common {
->>>>>>> c7d26979aed3f3e9dcaaa534cbc6562701285f4a
 }
