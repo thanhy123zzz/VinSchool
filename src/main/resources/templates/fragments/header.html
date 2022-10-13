@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<header th:fragment="header">
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+    <a class="navbar-brand" th:href="@{/}"><img class="logo" src="/images/logo/logo.png" alt="Logo"></a>
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav navbar-brand mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/}">Trang chủ<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/news}">Tin tức & sự kiện</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " th:href="@{/education}">Chương trình đào tạo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " th:href="@{/admissions}">Đăng ký nhập học</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " th:href="@{/rate}">Đánh giá</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " th:href="@{/contact}">Liên hệ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="manager-account.html"><i class="fa fa-suitcase"></i></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav navbar-brand">
+        <li class="nav-item mt-2 mt-md-0">
+          <a class="nav-link " th:if="${#request.userPrincipal != null}" th:href="@{/logout}"><i class="fa fa-sign-in"></i>&nbsp;Đăng xuất</a>
+          <a class="nav-link " th:unless="${#request.userPrincipal != null}" th:href="@{/login}"><i class="fa fa-sign-in"></i>&nbsp;Đăng nhập</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+</body>
+</html>

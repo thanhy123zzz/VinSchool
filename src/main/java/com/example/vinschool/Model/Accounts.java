@@ -30,4 +30,11 @@ public class Accounts implements Serializable {
     public void setIDrole(String IDrole) {
         this.IDrole = IDrole;
     }
+
+    public Accounts(String taiKhoan, String matKhau) {
+        TaiKhoan = taiKhoan;
+        MatKhau = matKhau;
+    }
+    public Accounts() {
+    }
 }

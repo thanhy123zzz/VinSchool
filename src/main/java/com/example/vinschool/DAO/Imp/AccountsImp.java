@@ -17,8 +17,8 @@ public class AccountsImp implements AccountsDao {
     JdbcTemplate jdbctemplate;
 
     @Override
-    public Accounts checkAccount(Accounts accounts) {
-        String query = "select * from accounts where TaiKhoan = "+accounts.getTaiKhoan() + "and MatKhau = "+accounts.getMatKhau();
+    public Accounts checkAccount(String username) {
+        String query = "select * from accounts where TaiKhoan = '"+username+"'";
         List<Accounts> list = new ArrayList<Accounts>();
         list = jdbctemplate.query(query,new AccountsMapper());
         if(list.size()==1)return list.get(0);

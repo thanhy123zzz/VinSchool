@@ -1,15 +1,33 @@
 package com.example.vinschool.Controller;
 
+import com.example.vinschool.Model.Accounts;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.security.Principal;
 
 @Controller
 public class KhachHangController extends Common {
     @GetMapping("/")
-    public String home(){
-        return "index";
+    public ModelAndView home(Principal principal) {
+        mv.setViewName("index");
+        return mv;
     }
-
+    @GetMapping("/news")
+    public String news(){
+        return "news";
+    }
+    @GetMapping("/education")
+    public String education(){
+        return "education";
+    }
+    @GetMapping("/admissions")
+    public String admissions(){
+        return "admissions";
+    }
     @GetMapping("/rate")
     public String rate(){
         return "rating";
@@ -18,12 +36,6 @@ public class KhachHangController extends Common {
     @GetMapping("/contact")
     public String contact(){
         return "contact";
-    }
-
-
-    @GetMapping("/manager")
-    public String QuanLy(){
-        return "manager-admissions";
     }
 
 }

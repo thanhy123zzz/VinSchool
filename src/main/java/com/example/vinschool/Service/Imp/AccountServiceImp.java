@@ -4,14 +4,41 @@ import com.example.vinschool.DAO.AccountsDao;
 import com.example.vinschool.Model.Accounts;
 import com.example.vinschool.Service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
-public class AccountServiceImp implements ManagerService {
+public class AccountServiceImp implements UserDetailsService {
     @Autowired
     private AccountsDao accountsDao;
     @Override
-    public Accounts checkAccount(Accounts accounts) {
-        return accountsDao.checkAccount(accounts);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        Accounts accounts = accountsDao.checkAccount(username);
+
+        if(accounts==null){
+            new UsernameNotFoundException("Loign fail!");
+        }
+        else {
+
+            List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
+            GrantedAuthority authority = new SimpleGrantedAuthority("ADMIN");
+            grantList.add(authority);
+            UserDetails user = User
+                    .withUsername(accounts.getTaiKhoan())
+                    .password(accounts.getMatKhau())
+                    .roles(accounts.getIDrole())
+                    .build();
+            return user;
+        }
+        return null;
     }
 }

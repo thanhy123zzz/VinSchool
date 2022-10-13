@@ -1,57 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tin tức & Sự kiện - Trường mầm non Vinschool TP Thủ Đức</title>
-  <link rel="shortcut icon" href="images/logo/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="dist/css/bootstrap.css">
-  <link rel="stylesheet" href="dist/css/style.css">
-  <link rel="stylesheet" href="dist/css/carousel.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
-  <header>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-      <a class="navbar-brand" href="index.html"><img class="logo" src="images/logo/logo.png" alt="Logo"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav navbar-brand mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Trang chủ<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="news.html">Tin tức & sự kiện</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="education.html">Chương trình đào tạo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="admissions.html">Đăng ký nhập học</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="rating.html">Đánh giá</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="contact.html">Liên hệ</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav navbar-brand">
-          <li class="nav-item mt-2 mt-md-0">
-            <a class="nav-link " href="#"><i class="fa fa-sign-in"></i>&nbsp;Đăng nhập</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-
+<body layout:fragment="content">
   <main role="main">
     <div class="container">
       <div class="news">
@@ -288,75 +243,7 @@
         </a>
       </div>
     </div>
-    <!--CHUAN CIS-->
-    <div class="footer-logos">
-      <div class="container d-flex align-items-center justify-content-center">
-        <div class="footer-logos-item col-4 col-lg-4 col-xl-4 m-auto ">
-          <img alt="" src="images/logo/logo_cam.png" class="img-fluid lazyload mx-xl-auto d-xl-block" />
-        </div>
-        <div class="cis footer-logos-item col-4 col-lg-4 col-xl-4 m-auto">
-          <img alt="" src="images/logo/Logo-CIS.png" class="img-fluid lazyload mx-xl-auto d-xl-block" />
-        </div>
-        <div class="footer-logos-item col-4 col-lg-4 col-xl-4 m-auto">
-          <img alt="" src="images/logo/logo_IPC.png" class="img-fluid lazyload mx-xl-auto d-xl-block" />
-        </div>
-      </div>
-    </div>
-    <!-- CHUAN CIS-->
-    <!-- FOOTER -->
-    <footer class="bg-dark text-light">
-      <div id="footer">
-        <div class="footer-top">
-          <div class="container">
-            <p class="the-title wow fadeInDown">Hệ thống Giáo dục Vinschool</p>
-            <div class="row">
-              <div class="col-sm-6 col-lg-4 col-xl-3">
-                <div class="widget wow fadeInLeft" data-wow-delay="0s">
-                  <p class="h6 footer-title">Tại Miền Bắc và Miền Trung:</p>
-                  <div class="content-widget">
-                    <p> <strong>T: </strong>
-                      <span>
-                        18006511 (chọn ngôn ngữ và bấm số máy lẻ 1 hoặc 3)<br />hoặc 094 659 1010 </span>
-                    </p>
-                    <p> <strong>E: </strong><span>tuyensinh@vinschool.edu.vn</span></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4 col-xl-3">
-                <div class="widget wow fadeInLeft" data-wow-delay="0.2s">
-                  <p class="h6 footer-title">Tại Miền Nam:</p>
-                  <div class="content-widget">
-                    <p> <strong>T: </strong>
-                      <span>
-                        18006511 (chọn ngôn ngữ và bấm số máy lẻ 2)<br />hoặc 091 1016 680 </span>
-                    </p>
-                    <p> <strong>E: </strong><span>tuyensinh.hcm@vinschool.edu.vn</span></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6 col-lg-4 col-xl-2">
-                <a href="//www.dmca.com/Protection/Status.aspx?ID=9753a5d8-c1fa-42e2-876e-3a12383d7ae0"
-                  title="DMCA.com Protection Status" class="dmca-badge"> <img src="images/logo/DMCA.png"
-                    alt="DMCA.com Protection Status" /></a>
-                <script src="dist/js/DMCABadgeHelper.min.js"> </script>
-              </div>
-              <div class="col-sm-6 col-lg-12 col-xl-4">
-                <p><i class="fa fa-map-marker" aria-hidden="true" style="font-size: 25px;"></i>&nbsp;RRQP+GQ3, Đ. Cầu
-                  Vồng 3, Long Thạnh Mỹ, Quận 9, Thành phố Hồ Chí Minh, Việt Nam</p>
-                <p><i class="fa fa-envelope" aria-hidden="true"
-                    style="font-size: 18px;"></i>&nbsp;Kidsvinschoolthuduc@gmail.com</p>
-                <p><i class="fa fa-phone-square" aria-hidden="true" style="font-size: 20px;"></i>&nbsp;0283643555</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
   </main>
-  <script src="dist/js/jQuery/jquery-3.6.1.min.js"></script>
-  <script src="dist/js/bootstrap.min.js"></script>
-  <!--<script>window.jQuery || document.write('<script src="dist/js/jQuery/jquery-3.6.1.min.js"><\/script>')</script> -->
-  <script src="dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
