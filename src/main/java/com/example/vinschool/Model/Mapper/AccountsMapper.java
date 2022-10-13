@@ -13,6 +13,10 @@ public class AccountsMapper implements RowMapper<Accounts> {
         accounts.setTaiKhoan(rs.getString("TaiKhoan"));
         accounts.setMatKhau(rs.getString("MatKhau"));
         accounts.setIDrole(rs.getString("IDrole"));
+<<<<<<< HEAD
         return accounts;
+=======
+return accounts;
+>>>>>>> c7d26979aed3f3e9dcaaa534cbc6562701285f4a
     }
 }

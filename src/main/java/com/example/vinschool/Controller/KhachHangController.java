@@ -29,20 +29,5 @@ public class KhachHangController extends Common {
     @GetMapping("/signup")
     public String signup(){
         return "signup";
-    } 
-
-    @GetMapping("/admissions")
-    public String admissions(){
-        return "admissions";
-    }
-
-    @GetMapping("/news")
-    public String news(){
-        return "news";
-    } 
-
-    @GetMapping("/education")
-    public String education(){
-        return "education";
     }
 }
