@@ -1,11 +1,10 @@
-package com.example.vinschool;
+package com.example.vinschool.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ManagermentController {
-
+public class ManagerController extends Common {
     @GetMapping("/manager-account")
     public String manageraccount(){
         return "manager-account";

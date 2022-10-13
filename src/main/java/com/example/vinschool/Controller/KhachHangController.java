@@ -1,10 +1,10 @@
-package com.example.vinschool;
+package com.example.vinschool.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class HomeController {
+public class KhachHangController extends Common {
     @GetMapping("/")
     public String home(){
         return "index";
@@ -20,9 +20,10 @@ public class HomeController {
         return "contact";
     }
 
-    @GetMapping("/login")
-    public String login(){
-        return "login";
+
+    @GetMapping("/manager")
+    public String QuanLy(){
+        return "manager-admissions";
     }
 
     @GetMapping("/signup")
