@@ -23,5 +23,10 @@ public class ManagerController extends Common {
     @GetMapping("/manager-rate")
     public String managerRate(){
         return "manager-rate";
+    } 
+
+    @GetMapping("/manager-user")
+    public String managerUser(){
+        return "manager-user";
     }
 }
