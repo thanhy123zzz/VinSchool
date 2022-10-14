@@ -12,14 +12,15 @@
     <!-- /END THE FEATURETTES -->
     <div class="container">
       <div class="admission">
-        <form method="post"  onsubmit="return FormValidate();">
+        <form method="post" onsubmit="return FormValidate();"> 
           <h2 class="text-light mb-4" style="font-weight: 600;text-transform: capitalize;"><i
               class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Đăng ký nhập
             học cho bé</h2>
           <hr class="bg-info mb-5">
           <div class="row text-light">
             <div class="col-12">
-              <p style="font-size: 14px;"><i>Lưu ý: <span style="color: red;">(*)</span> là mục không được bỏ trống</i></p>
+              <p style="font-size: 14px;"><i>Lưu ý: <span style="color: red;">(*)</span> là mục không được bỏ trống</i>
+              </p>
             </div>
             <div class="col-6 mb-2">
               <p>Họ và tên phụ huynh <span style="color: red;">(*)</span></p>
@@ -31,11 +32,6 @@
               <input id="phone" type="text" class="input-group p-2" placeholder="VD: 038473622">
               <p class="text-danger p-auto m-2" id="errorPhone">&nbsp;</p>
             </div>
-            <div class="col-12 mb-2">
-              <p>Địa chỉ <span style="color: red;">(*)</span></p>
-              <input id="address" type="text" class="input-group p-2" placeholder="VD: 12 Đường Nguyễn Văn A Phường Anh Mỹ Quận 1 TP HCM">
-              <p class="text-danger p-auto m-2" id="errorAddress">&nbsp;</p>
-            </div>
             <div class="col-6 mb-2">
               <p>Đơn vị công tác <span style="color: red;">(*)</span></p>
               <input id="workUnit" type="text" class="input-group p-2" placeholder="VD: VinGroup - Chi nhánh TP HCM">
@@ -46,6 +42,12 @@
               <input id="email" type="text" class="input-group p-2" placeholder="VD: nguyenanhmy12@gmail.com">
               <p class="text-danger p-auto m-2" id="errorEmail">&nbsp;</p>
             </div>
+            <div class="col-12 mb-2">
+              <p>Địa chỉ <span style="color: red;">(*)</span></p>
+              <input id="address" type="text" class="input-group p-2"
+                placeholder="VD: 12 Đường Nguyễn Văn A Phường Anh Mỹ Quận 1 TP HCM">
+              <p class="text-danger p-auto m-2" id="errorAddress">&nbsp;</p>
+            </div>
             <div class="col-6 mb-2">
               <p>Họ và tên của bé <span style="color: red;">(*)</span></p>
               <input id="nameBaby" type="text" class="input-group p-2" placeholder="VD: Nguyễn Văn A">
@@ -53,15 +55,25 @@
             </div>
             <div class="col-6 mb-2">
               <p id="birthdayBaby">Ngày sinh của bé <span style="color: red;">(*)</span></p>
-              <input id="birthdayBaby" type="date" class="input-group p-2" required>
+              <input id="birthdayBaby" type="date" class="input-group p-2" >
               <p id="errorBirhdayBaby">&nbsp;</p>
+            </div>
+            <div class="col-12 mb-2">
+              <p id="classBaby">Lớp học của bé <span style="color: red;">(*)</span></p>
+              <select class="input-group p-2" name="" id="">
+                <option class="p-1" value="0" disabled selected>-- Chọn lớp học phù hợp với độ tuổi của bé --</option>
+                <option class="p-1" value="1">Lớp mầm(3 tuổi)</option>
+                <option class="p-1" value="2">Lớp chồi(4 tuổi)</option>
+                <option class="p-1" value="3">Lớp lá(5 tuổi)</option>
+              </select>
+              <p id="errorClassBaby">&nbsp;</p>
             </div>
             <div class="col-12 mb-5">
               <p>Ghi chú</p>
               <textarea class="input-group p-2" rows="8"></textarea>
             </div>
             <div class="col-6">
-              <button type="submit" class="float-right btn btn-info mb-5 p-3">Đăng ký nhập học</button>
+              <button type="button" class="float-right btn btn-info mb-5 p-3" data-target="#messPaymet" data-toggle="modal">Đăng ký nhập học</button>
             </div>
             <div class="col-6">
               <button type="reset" class="float-left btn btn-danger mb-5 p-3" style="width: 30%;">Hủy</button>
@@ -70,8 +82,133 @@
         </form>
       </div>
     </div><!-- /.container -->
+    <!-- Payment -->
+    <div class="payment">
+      <div class="modal" id="payment-tuition">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Thanh toán học phí</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+              <div class="row payment-details">
+                <div class="col-6 credit-card"><img class="" src="images/payment/credit-cards.png" alt=""></div>
+                <div class="col-6 momo"><img class="" src="images/payment/momo.png" alt=""></div>
+                <div class="col-12 p-2">
+                  <h4>Tên chủ thẻ</h4> <input class=" input-group text-uppercase p-2" type="text"
+                    placeholder="Nhập đầy đủ họ và tên không dấu">
+                </div>
+                <div class="col-6 p-2">
+                  <h4>Số thẻ</h4><input class=" input-group pt-2 pb-2 pl-5 pr-5" type="text"
+                    placeholder="XXXX - XXXX - XXXX - XXXX">
+                </div>
+                <div class="col-6 p-2">
+                  <h4>Ngày hết hạn</h4><input class=" input-group pt-2 pb-2 pl-5 pr-5" type="text"
+                    placeholder="MM/YY">
+                </div>
+                <div class="col-12 p-2 mt-5">
+                  <h4 class="text-capitalize" style="font-weight: 600;">Thông tin học phí</h4>
+                  <hr class="bg-info">
+                </div>
+                <div class="col-6 p-2">
+                  <h4>Họ và tên bé</h4><input class=" input-group pt-2 pb-2 pl-5 pr-5" readonly type="text"
+                    value="Nguyễn Đức Anh">
+                </div>
+                <div class="col-6 p-2">
+                  <h4>Ngày sinh của bé </h4><input class=" input-group pt-2 pb-2 pl-5 pr-5" type="text"
+                    value="12/03/2018" readonly>
+                </div>
+                <div class="col-12 p-2">
+                  <h4>Lớp học</h4><input class=" input-group pt-2 pb-2 pl-5 pr-5" type="text" value="Lớp Lá" readonly>
+                </div>
+                <div class="col-12 p-2">
+                  <h4 class="">Tổng cộng</h4>
+                  <input class=" input-group p-2" type="text" value="200.000.000 Đồng"
+                    style="border: none; font-weight: 800;" readonly>
+                </div>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" data-dismiss="modal" data-toggle="modal" data-target="#modalConfirmcode"
+                class="btn btn-info">Thanh toán</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Payment -->
+    <!-- Confirm code -->
+    <div class="modal " id="modalConfirmcode">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Mã xác nhận</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="row forget-pass">
+              <div class="col-2 text-center">
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+              </div>
+              <div class="col-10">
+                <input id="codeconfirm" type="text" class="input-group"
+                  placeholder="Nhập mã xác nhận">
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" data-toggle="modal" data-target="#messSuccess"
+              class="btn btn-info">Xác nhận</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Confirm code -->
+    <div class="modal " id="messSuccess">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Thanh toán thành công!</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal " id="messPaymet">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Bạn có muốn thanh toán học phí cho bé luôn không?</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" data-toggle="modal" data-target="#payment-tuition"
+              class="btn btn-info">Đồng ý</button>
+              <button type="button" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Payment -->
     <!-- FOOTER -->
   </main>
+  <script src="dist/js/popper.min.js"></script>
+  <script src="dist/js/bootstrap.min.js"></script>
+  <script src="dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

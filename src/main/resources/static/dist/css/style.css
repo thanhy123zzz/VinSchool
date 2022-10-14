@@ -104,6 +104,11 @@ body {
         max-height: 30%;
         max-width: 30%;
     }
+    
+    /* Payment*/
+    .payment-details input{
+        font-size: 12px !important;
+    }
 
 }
 
@@ -437,23 +442,32 @@ body {
     background-color: #688b11;
 }
 
-.manager-nav-left {
-    max-width: 20%;
-    width: 20%;
-}
 
-.manager-nav-right {
-    max-width: 80%;
+
+/* Manager VinSchool*/
+nav.managerment{
+    width: 100%;
+}
+.manager-nav-left {
+    max-width: 10%;
+    width: 10%;
+}
+/* logo manager*/
+.manager-nav-left img{
+    height: 80%;
     width: 80%;
 }
 
-/* Manager VinSchool*/
+.manager-nav-right {
+    max-width: 90%;
+    width: 90%;
+}
 .manager ul.navbar-nav.navbar-brand {
-    margin-left: 50px;
+    margin: auto;
 }
 
 .manager li.nav-item {
-    margin-left: 20%;
+    margin: auto 2% auto 8%;
 }
 
 .manager .nav-item a p {
@@ -540,4 +554,118 @@ body {
 .filter-star i{
     padding: 1%;
     font-size: 50px;
+}
+/* Edit modal Payment*/
+.payment .modal-content{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.payment .modal-header{
+    background-color: #0b9c95;
+}
+.payment .modal-header h4{
+    font-size: 22px;
+    font-weight: 600;
+    padding-left: 2%;
+    color: #fff;
+    text-transform: capitalize;
+}
+.payment .modal .modal-dialog .modal-content .modal-header{
+    border-bottom: 1px solid #0b9c95;
+    border-top: 1px solid #0b9c95;
+    margin-right: 0;
+
+}
+.icon-payment .col-12{
+    margin: 0;
+}
+.payment-details img{
+    border-radius: 10px;
+    width: 60px;
+    height: 60px;
+    justify-items: center;
+    margin: 5% 60% 5% 40%;
+    /* border-bottom: 1px solid #750d21; */
+    cursor: pointer;
+}
+.row.payment-details .col-6.momo{
+    background-color: #0b9c95;
+}
+.row.payment-details .col-6.momo:hover{
+    background-color: #a2b395;
+    border-bottom: 5px solid #CDA666;
+}
+.row.payment-details .col-6.credit-card{
+    background-color: #6cbc2a;
+
+}
+.row.payment-details .col-6.credit-card:hover{
+    background-color: #a2b395;
+    border-bottom: 5px solid #CDA666;
+
+}
+.payment-infor{
+    width: 100%;
+    display: inline;
+    margin: 5%  ;
+}
+.payment-details input{
+    border-radius: 5px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+/* confirm code*/
+.forget-pass input{
+    height: 100%;
+    padding: 2%;
+    border: 1px solid #0d4d5d;
+    color: #0d4d5d;;
+    border-radius: 5px;
+    padding-left: 20px !important;
+    
+}
+.forget-pass i{
+    font-size: 40px;
+    padding: 2%;
+    width: 100%;
+}
+#modalConfirmcode .modal-content{
+    background-color: #287d6f;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#messSuccess .modal-content{
+    background-color: #287d6f;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #fff;
+} 
+#messPaymet .modal-content{
+    background-color: #287d6f;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #fff;
+} 
+#messSuccess .modal-header{
+    border-bottom: none;
+    padding: 5%;
+    text-transform: capitalize;
+}
+/* SEARCH TOP MANAGERMENT*/
+.row.search-top i.fa.fa-search{
+    font-size: 30px;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #0b9c95;
+}
+.row.search-top input{
+    
+    border-radius: 5px;
+}
+.table-vinschool a.nav-link{
+    color: #CDA666;
+    font-weight: 700;
+}
+.table-vinschool a.nav-link.active{
+    color: #202744;
+    font-weight: 700;
+}
+.table-vinschool .nav-item{
+    font-size: 28px;
 }
