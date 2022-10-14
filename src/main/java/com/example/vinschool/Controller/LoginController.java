@@ -22,8 +22,10 @@ public class LoginController extends Common{
     }
 
     @GetMapping("/login")
-    public String login(){
-        return "login";
+    public ModelAndView login(){
+        mv.addObject("userName","");
+        mv.setViewName("login");
+        return mv;
     }
 
     @GetMapping("/signup")
