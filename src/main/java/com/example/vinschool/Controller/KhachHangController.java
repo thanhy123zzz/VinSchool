@@ -3,11 +3,13 @@ package com.example.vinschool.Controller;
 import com.example.vinschool.Model.Accounts;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
+import java.security.SecureRandom;
 
 @Controller
 public class KhachHangController extends Common {

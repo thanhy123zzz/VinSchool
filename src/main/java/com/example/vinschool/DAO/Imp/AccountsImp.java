@@ -24,4 +24,10 @@ public class AccountsImp implements AccountsDao {
         if(list.size()==1)return list.get(0);
         else return null;
     }
+
+    @Override
+    public int insertAccount(Accounts accounts) {
+        String query = "insert into accounts(TaiKhoan,MatKhau,IDrole) values(?,?,?)";
+        return jdbctemplate.update(query,new Object[]{accounts.getTaiKhoan(),accounts.getMatKhau(),accounts.getIDrole()});
+    }
 }
