@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class AccountServiceImp implements UserDetailsService {
+public class AccountDetailService implements UserDetailsService, ManagerService {
     @Autowired
     private AccountsDao accountsDao;
     @Override
@@ -40,5 +40,15 @@ public class AccountServiceImp implements UserDetailsService {
             return user;
         }
         return null;
+    }
+
+    @Override
+    public int insertAccount(Accounts accounts) {
+        return accountsDao.insertAccount(accounts);
+    }
+
+    @Override
+    public boolean checkAccount(String userName) {
+        return accountsDao.checkAccount(userName) == null;
     }
 }
