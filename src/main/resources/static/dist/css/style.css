@@ -454,8 +454,8 @@ nav.managerment{
 }
 /* logo manager*/
 .manager-nav-left img{
-    height: 80%;
-    width: 80%;
+    height: 70%;
+    width: 70%;
 }
 
 .manager-nav-right {
@@ -655,7 +655,6 @@ nav.managerment{
     background-color: #0b9c95;
 }
 .row.search-top input{
-    
     border-radius: 5px;
 }
 .table-vinschool a.nav-link{
