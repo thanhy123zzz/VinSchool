@@ -23,7 +23,7 @@ public class WebSecurityConfig{
         http.authenticationProvider(authenticationProvider());
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/", "/logout","/manger/dist/**","/manager/static/**","/manager/images/**").permitAll()
+                .antMatchers("/", "/logout","/manager/dist/**","/manager/static/**","/manager/images/**").permitAll()
                 .antMatchers("/manager/**").access("hasAnyRole('ADMIN','NHANVIEN')")
                 .and()
                 .formLogin()
