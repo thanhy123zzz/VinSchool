@@ -35,6 +35,11 @@ public class Accounts implements Serializable {
         TaiKhoan = taiKhoan;
         MatKhau = matKhau;
     }
+
+    public Accounts(String taiKhoan) {
+        TaiKhoan = taiKhoan;
+    }
+
     public Accounts() {
     }
 }
