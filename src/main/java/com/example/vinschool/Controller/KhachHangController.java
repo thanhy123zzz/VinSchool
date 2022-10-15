@@ -16,6 +16,12 @@ public class KhachHangController extends Common {
     @GetMapping("/")
     public ModelAndView home(Principal principal) {
         mv.setViewName("index");
+        try{
+            mv.addObject("userName",principal.getName());
+        }
+        catch (NullPointerException ignored){
+
+        }
         return mv;
     }
     @GetMapping("/news")

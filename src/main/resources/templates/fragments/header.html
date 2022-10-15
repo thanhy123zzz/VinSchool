@@ -31,11 +31,13 @@
           <a class="nav-link " th:href="@{/contact}">Liên hệ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="manager-account.html"><i class="fa fa-suitcase"></i></a>
+          <a class="nav-link " th:if="${#authentication.principal=='ADMIN'}" th:href="@{/manager-account}"><i class="fa fa-suitcase"></i>Quản lý</a>
         </li>
       </ul>
       <ul class="navbar-nav navbar-brand">
         <li class="nav-item mt-2 mt-md-0">
+          <a class="nav-link " th:if="${#request.userPrincipal == null}" style="display: none" href="#"></a>
+          <a class="nav-link " th:unless="${#request.userPrincipal == null}" th:text="${userName}" href="#"></a>
           <a class="nav-link " th:if="${#request.userPrincipal != null}" th:href="@{/logout}"><i class="fa fa-sign-in"></i>&nbsp;Đăng xuất</a>
           <a class="nav-link " th:unless="${#request.userPrincipal != null}" th:href="@{/login}"><i class="fa fa-sign-in"></i>&nbsp;Đăng nhập</a>
         </li>
