@@ -1,14 +1,16 @@
 package com.example.vinschool.Controller;
 
+import ch.qos.logback.core.encoder.EchoEncoder;
+import com.example.vinschool.Model.Accounts;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,13 +22,40 @@ public class LoginController extends Common{
     }
 
     @GetMapping("/login")
-    public String login(){
-        return "login";
+    public ModelAndView login(){
+        mv.addObject("userName","");
+        mv.setViewName("login");
+        return mv;
     }
 
     @GetMapping("/signup")
-    public String signup(){
-        return "signup";
+    public ModelAndView signup(){
+        mv.addObject("message","");
+        mv.setViewName("signup");
+        return mv;
     }
 
+    @PostMapping("/check-account")
+    public ModelAndView check_account(@RequestParam("userName") String userName){
+        if(managerService.checkAccount(userName))
+        {
+            mv.addObject("message","");
+            mv.setViewName("signup :: #message");
+            return mv;
+
+        }else{
+            mv.addObject("message","Tài khoản đã tồn tại");
+            mv.setViewName("signup :: #message");
+            return mv;
+        }
+    }
+    @PostMapping("/login")
+    public ModelAndView insert_account(Accounts accounts){
+        accounts.setIDrole("KHACHHANG");
+        accounts.setMatKhau(passwordEncoder.encode(accounts.getMatKhau()));
+        managerService.insertAccount(accounts);
+        mv.setViewName("login");
+        mv.addObject("userName",accounts.getTaiKhoan());
+        return mv;
+    }
 }
