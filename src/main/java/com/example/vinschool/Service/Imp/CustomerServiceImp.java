@@ -33,4 +33,14 @@ public class CustomerServiceImp implements CustomerService{
     public int removeCustomer(int id){
         return customerDAO.removeCustomer(id);
     }
+
+    @Override
+    public Customer inforCT(String taikhoan) {
+        return customerDAO.infoCustomer(taikhoan);
+    }
+
+    @Override
+    public Customer inforCT(int idkh) {
+        return customerDAO.infoCustomer(idkh);
+    }
 }

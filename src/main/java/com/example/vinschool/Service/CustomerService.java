@@ -10,4 +10,8 @@ public interface CustomerService {
     int editCustomer(Customer customer);
     int removeCustomer(int id);
 
+    Customer inforCT(String taikhoan);
+
+    Customer inforCT(int idkh);
+
 }

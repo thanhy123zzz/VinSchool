@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-4 m-auto">
                             <div class="rate-current m-auto">
-                                <h1>5.0</h1>
+                                <h1 th:text="${diem}"></h1>
                                 <p>out of 5</p>
                             </div>
                             <div class="star">
@@ -87,72 +87,25 @@
                     </select>
                 </div>
                 <div class="user-comment-rate p-5">
-                    <div class="row">
-                        <div class="details-comment bg-vinschool2">
-                            <div class="col-12">
-                                <img src="images/id/teacher1.jpg" alt="">
+                    <div class="column">
+                        <th:block th:each="rate : ${rates}" th:id="list_rate">
+                        <div class="details-comment bg-vinschool2 mr-2 ml-2">
+                            <div class="row col-12 mb-3" style="display: flex;justify-content: space-between">
+                                <div class="row">
+                                    <img src="/images/id/teacher1.jpg" alt="">
+                                    <h5 id="idkh" th:text="${rate.getTen()}"></h5>
+                                </div>
+                                <i class="fa fa-star" th:text="${rate.getRate()}" style="font-size: 30px;margin-top: 20px;"></i>
                             </div>
-                            <div class="col-12 p-5">
-                                <p>kidvinschool rất tuyệt vời. tôi rất yêu thích nơi này nó giúp hshshs sjd
-                                    ddddddddddddddddddddddddddddddddddddddddddddddddd sssssssssssssssssssssssssssss</p>
-                            </div>
-                        </div>
-                        <div class="details-comment bg-vinschool2">
-                            <div class="col-12">
-                                <img src="images/id/teacher1.jpg" alt="">
-                            </div>
-                            <div class="col-12 p-5">
-                                <p>kidvinschool rất tuyệt vời. tôi rất yêu thích nơi này nó giúp
-                                    .................................................
-                                    ...............................x
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.................................................
-                                    ...............................x
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.................................................
-                                    ...............................x
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.................................................
-                                    ...............................x
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</p>
+                            <div class="col-12 p-5" style="background-color: #FFFFFF; color: black;border-radius: 15px">
+                                <p th:text="${rate.getContent()}"></p>
                             </div>
                         </div>
-                        <div class="details-comment bg-vinschool2">
-                            <div class="col-12">
-                                <img src="images/id/teacher1.jpg" alt="">
-                            </div>
-                            <div class="col-12 p-5">
-                                <p>kidvinschool rất tuyệt vời. tôi rất yêu thích nơi này nó giúp
-                                    .................................................
-                                    ...............................x
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.................................................
-                                    ...............................x
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.................................................
-                                    ...............................x
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.................................................
-                                    ...............................x
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</p>
-                            </div>
-                        </div>
-                        <div class="details-comment bg-vinschool2">
-                            <div class="col-12">
-                                <img src="images/id/teacher1.jpg" alt="">
-                            </div>
-                            <div class="col-12 p-5">
-                                <p>kidvinschool rất tuyệt vời. tôi rất yêu thích nơi này nó giúp
-                                    .................................................
-                                    ...............................x
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.................................................
-                                    ...............................x
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.................................................
-                                    ...............................x
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,.................................................
-                                    ...............................x
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-                                    ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,</p>
-                            </div>
-                        </div>
+                        </th:block>
+
+
                         <div class="col-12">
-                            <form  action="post">
+                            <form th:action="@{/insert-danhgia}" method="post">
                                 <hr class="bg-info">
                                 <h4 class="text-head-vinschool ">Viết đánh giá</h4>
                                 <hr class="bg-info">
@@ -174,13 +127,19 @@
                                     </div>
                                 </div>
                                 <div class="col-12 mt-1">
-                                    <img class="mb-2" src="images/id/teacher.png" alt="">
+                                    <div class="row mb-2 ml-2">
+                                    <img class="mb-2 ml-2" src="/images/id/teacher.png" alt="">
+                                        <h5 class="h5"  th:if="${#authorization.expression('isAuthenticated()')}" th:text="${#authentication.getPrincipal().getUsername()}">
+                                        </h5>
+                                        <h5 class="h5"  th:unless="${#authorization.expression('isAuthenticated()')}"> Đăng nhập trước khi đánh giá!
+                                        </h5>
+                                        <input name="TaiKhoan" th:if="${#authorization.expression('isAuthenticated()')}" th:value="${#authentication.getPrincipal().getUsername()}" type="text" style="display: none">
+                                    </div>
                                     <textarea class="col-12 input-group p-2 mb-2" rows="8"
-                                        placeholder="Hãy viết gì đó về Kidvinschool..."></textarea>
-                                    <button class="btn btn-outline-info">Đánh giá</button>
+                                        placeholder="Hãy viết gì đó về Kidvinschool..." name="content"></textarea>
+                                    <button sec:authorize="hasAnyRole('KHACHHANG')" class="btn btn-outline-info">Đánh giá</button>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
