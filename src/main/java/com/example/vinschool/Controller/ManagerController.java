@@ -1,6 +1,7 @@
 package com.example.vinschool.Controller;
 
 import com.example.vinschool.Model.Admin;
+import com.example.vinschool.Model.DanhGia;
 import com.example.vinschool.Model.TinTuc;
 import com.example.vinschool.Service.TinTucService;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
@@ -21,6 +22,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 
 @RequestMapping("/manager")
 @Controller
@@ -41,8 +43,26 @@ public class ManagerController extends Common {
     }
 
     @GetMapping("/manager-rate")
-    public String rate(){
-        return "manager-rate";
+    public ModelAndView rate(){
+        List<DanhGia> list = danhGiaService.showList(5);
+        mv.setViewName("manager-rate");
+        mv.addObject("rates",list);
+        return mv;
+    }
+    @PostMapping("/xoa-rate")
+    public ModelAndView xoa_rate(int idKH){
+        danhGiaService.xoaDanhGia(idKH);
+        List<DanhGia> list = danhGiaService.showList(5);
+        mv.addObject("rates",list);
+        mv.setViewName("manager-rate :: #rates");
+        return mv;
+    }
+    @PostMapping("/find-rate")
+    public ModelAndView find_rate(String key){
+        List<DanhGia> list = danhGiaService.find(key);
+        mv.addObject("rates",list);
+        mv.setViewName("manager-rate :: #rates");
+        return mv;
     }
 
     @GetMapping("/manager-events-news")
@@ -88,4 +108,5 @@ public class ManagerController extends Common {
         mv.setViewName("manager-events-news :: #news");
         return mv;
     }
+
 }

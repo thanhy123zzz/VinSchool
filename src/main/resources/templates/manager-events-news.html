@@ -230,7 +230,105 @@
     </div>
 </main>
 
+<script>
+    $('.imageInput').on('change', function() {
+        $input = $(this);
+        if($input.val().length > 0) {
+            fileReader = new FileReader();
+            fileReader.onload = function (data) {
+                $('.image-preview').attr('src', data.target.result);
+            }
+            fileReader.readAsDataURL($input.prop('files')[0]);
+            $('.image-button').css('display', 'none');
+            $('.image-preview').css('display', 'block');
+            $('.change-image').css('display', 'block');
+        }
+    });
 
+    $('.change-image').on('click', function() {
+        $control = $(this);
+        $('#imageInput').val('');
+        $preview = $('.image-preview');
+        $preview.attr('src', '');
+        $preview.css('display', 'none');
+        $control.css('display', 'none');
+        $('.image-button').css('display', 'block');
+    });
+
+</script>
+<script>
+    function load_header(){
+        $('#header-content').replaceWith('<div class="col-12 p-2">\n' +
+            '                                <h4>Header</h4> <input class=" input-group text-uppercase p-2" type="text"\n' +
+            '                                                         placeholder="Header">\n' +
+            '                            </div>');
+        $('#header-content-replace').replaceWith('<div id = "header-content" style="display: none">\n' +
+            '\n' +
+            '                            </div>\n' +
+            '                            <div id = "header-content-replace" style="display: none"></div>');
+    }
+    function load_content(){
+        $('#header-content').replaceWith('<div class="col-12 p-2"><h4>Nội dung</h4> <textarea  class=" input-group text-uppercase p-2" placeholder="Nội dung"></textarea>\n' +
+            '                            </div>');
+        $('#header-content-replace').replaceWith('<div id = "header-content" style="display: none">\n' +
+            '\n' +
+            '                            </div>\n' +
+            '                            <div id = "header-content-replace" style="display: none"></div>');
+    }
+
+    function sua_tin(id){
+        $.ajax({
+            type : "POST",
+            url: "/manager/load-modal-sua-tin",
+            data: "idTin="+id,
+            success: function(data) {
+                $('#sua_tin').replaceWith(data);
+            },
+            error: function(data){
+                alert('Lỗi!');
+            }
+        });
+    }
+
+    function load_news(){
+        $.ajax({
+            type : "POST",
+            url: "/manager/load-news",
+            data: "limit="+$('#limit').val(),
+            success: function(data) {
+                $('#news').replaceWith(data);
+                document.getElementById("limit").val();
+            },
+            error: function(data){
+                alert("lỗi!");
+            }
+        });
+    }
+
+    function open_modal_xoa(idTin){
+        $('#removeaccount').css('display','block');
+        $('#btn-xac-nhan').val(idTin);
+    }
+    function xoa_tin(idTin) {
+        if (confirm('Bạn có muốn xoá?'+idTin)) {
+            $.ajax({
+                type: "POST",
+                url: "/manager/xoa-tin",
+                data: "idTin=" + idTin,
+                success: function (data) {
+                    alert('Xoá thành công!');
+                    $('#news').replaceWith(data);
+                },
+                error: function (data) {
+                    alert("lỗi!");
+                }
+            });
+        }
+        else{
+            return false;
+        }
+    }
+</script>
 </body>
 
 </html>

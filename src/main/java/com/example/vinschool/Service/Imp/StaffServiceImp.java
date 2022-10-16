@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.vinschool.DAO.StaffDAO;
 import com.example.vinschool.Model.Staff;
 import com.example.vinschool.Service.StaffService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class StaffServiceImp implements StaffService{
     @Autowired
     private StaffDAO StaffDAO;

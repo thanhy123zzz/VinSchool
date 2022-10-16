@@ -1,6 +1,7 @@
 package com.example.vinschool.Controller;
 
 import com.example.vinschool.Model.Accounts;
+import com.example.vinschool.Model.DanhGia;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -20,6 +21,7 @@ import java.security.Principal;
 import java.security.SecureRandom;
 import java.sql.Blob;
 import java.sql.SQLException;
+import java.util.List;
 
 @Controller
 public class KhachHangController extends Common {
@@ -67,8 +69,26 @@ public class KhachHangController extends Common {
         return "admissions";
     }
     @GetMapping("/rate")
-    public String rate(){
-        return "rating";
+    public ModelAndView rate(){
+        List<DanhGia> list = danhGiaService.showList(5);
+        int tong=0;
+        for(DanhGia danhgia : list){
+            tong+= danhgia.getRate();
+        }
+        float diem = (float) tong/(float)list.size();
+        mv.setViewName("rating");
+        mv.addObject("rates",list);
+        mv.addObject("diem",diem);
+        return mv;
+    }
+
+    @PostMapping("/insert-danhgia")
+    public ModelAndView insert_danhgia(@RequestParam("rate") int rate, DanhGia danhGia){
+        danhGia.setIdKH(customerService.inforCT(danhGia.getTaiKhoan()).getId());
+        danhGia.setRate(rate);
+        danhGiaService.insertDanhGia(danhGia);
+        mv.setViewName("redirect:/rate");
+        return mv;
     }
 
     @GetMapping("/contact")
@@ -80,6 +100,12 @@ public class KhachHangController extends Common {
     public ModelAndView detail_News(@PathVariable("idTin") int id){
         mv.setViewName("detail-news-events");
         mv.addObject("tin",tinTucService.findTin(id));
+        return mv;
+    }
+
+    @PostMapping("/load-ten")
+    public ModelAndView load_ten(int idkh){
+        mv.setViewName("<h5>"+customerService.inforCT(idkh).getFullname()+"</h5>");
         return mv;
     }
 }

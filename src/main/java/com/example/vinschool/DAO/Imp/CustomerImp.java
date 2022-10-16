@@ -41,4 +41,18 @@ public class CustomerImp implements CustomerDAO {
 		String sql = "DELETE from `vinschool`.`khachhang` WHERE IDKH = ?";
 		return jdbctemplate.update(sql);
 	}
+
+    @Override
+    public Customer infoCustomer(String taiKhoan) {
+        String query = "select*from khachhang where TaiKhoan ='"+taiKhoan+"'";
+        List<Customer> list = jdbctemplate.query(query,new CustomerMapper());
+        return list.get(0);
+    }
+
+    @Override
+    public Customer infoCustomer(int idkh) {
+        String query = "select*from khachhang where IDKH ="+idkh;
+        List<Customer> list = jdbctemplate.query(query,new CustomerMapper());
+        return list.get(0);
+    }
 }
