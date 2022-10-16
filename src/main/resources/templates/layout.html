@@ -33,5 +33,23 @@
 <script src="/dist/js/popper.min.js"></script>
 <script src="/dist/js/bootstrap.min.js"></script>
 <script src="/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+function load_news(){
+    $.ajax({
+        type : "POST",
+        url: "/load-news",
+        data: "limit="+$('#limit').val(),
+        success: function(data) {
+            $('#news').replaceWith(data);
+            document.getElementById("limit").val();
+        },
+        error: function(data){
+            alert("lỗi!");
+        }
+    });
+}
+
+</script>
 </body>
 </html>

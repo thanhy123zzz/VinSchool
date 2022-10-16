@@ -13,6 +13,7 @@ import org.springframework.web.servlet.View;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Objects;
 
 @Controller
 public class LoginController extends Common{
@@ -22,8 +23,11 @@ public class LoginController extends Common{
     }
 
     @GetMapping("/login")
-    public ModelAndView login(){
+    public ModelAndView login(String success){
         mv.addObject("userName","");
+        if(Objects.equals(success, "fail")) {
+            mv.addObject("message", "Đăng nhập thất bại");
+        }
         mv.setViewName("login");
         return mv;
     }
