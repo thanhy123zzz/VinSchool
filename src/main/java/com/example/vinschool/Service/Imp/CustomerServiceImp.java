@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.example.vinschool.DAO.CustomerDAO;
 import com.example.vinschool.Model.Customer;
 import com.example.vinschool.Service.CustomerService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CustomerServiceImp implements CustomerService{
     @Autowired
     private CustomerDAO customerDAO;

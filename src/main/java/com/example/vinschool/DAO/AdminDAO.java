@@ -9,4 +9,5 @@ public interface AdminDAO {
     int addAdmin(Admin Admin);
     int editAdmin(Admin Admin);
     int removeAdmin(int id);
+    Admin showAdmin(String TaiKhoan);
 }
