@@ -12,6 +12,6 @@ public interface CustomerDAO {
     List<Customer> findIDCustomers(String TaiKhoan);
     List<Customer> checkIDCustomers(int id);
     Customer infoCustomer(String taiKhoan);
-
     Customer infoCustomer(int idkh);
+    int addNullCustomer(Customer customer);
 }

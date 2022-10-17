@@ -32,12 +32,16 @@ public class CustomerImp implements CustomerDAO {
     }
 
     @Override
-    public int editCustomer(Customer customer) {
-        String sql = "UPDATE `vinschool`.`khachhang` SET  `Ten` = ?, `NgaySinh` = ?, `CCCD` = ?, `Phone` = ?, `Email` = ?, `GioiTinh` = ?, `TaiKhoan` = ? WHERE `IDKH` = ?";
-        return jdbctemplate.update(sql,
-                new Object[] { customer.getFullname(), customer.getBirthday(), customer.getCitizenId(),
-                        customer.getPhonenumber(), customer.getEmail(), customer.getGender(), customer.getTaiKhoan(),
-                        customer.getId() });
+    public int addNullCustomer(Customer customer){
+        String sql = "INSERT INTO `vinschool`.`khachhang` (`Ten`,`TaiKhoan`) VALUES (?,?);";
+        return jdbctemplate.update(sql, new Object[] {customer.getFullname(),customer.getTaiKhoan()});
+    }
+
+    @Override
+    public int editCustomer(Customer customer){
+        String sql = "UPDATE `vinschool`.`khachhang` SET  `Ten` = ?, `NgaySinh` = ?, `CCCD` = ?, `Phone` = ?, `Email` = ?, `GioiTinh` = ?, `TaiKhoan` = ? WHERE `IDNV` = ?";
+        return jdbctemplate.update(sql, new Object[] {customer.getFullname(),customer.getBirthday(),customer.getCitizenId(),
+        customer.getPhonenumber(),customer.getEmail(),customer.getGender(),customer.getTaiKhoan(),customer.getId()});
     }
 
     @Override

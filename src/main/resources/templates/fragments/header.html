@@ -12,22 +12,22 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav navbar-brand mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item" id = "nav-home">
           <a class="nav-link" th:href="@{/}">Trang chủ<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="nav-news">
           <a class="nav-link" th:href="@{/news}">Tin tức & sự kiện</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="nav-education">
           <a class="nav-link " th:href="@{/education}">Chương trình đào tạo</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " sec:authorize="hasAnyRole('KHACHHANG')" th:href="@{/admissions}">Đăng ký nhập học</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="nav-rate" onclick="active()">
           <a class="nav-link " th:href="@{/rate}">Đánh giá</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="nav-contact">
           <a class="nav-link " th:href="@{/contact}">Liên hệ</a>
         </li>
         <li class="nav-item">
@@ -42,6 +42,9 @@
       </ul>
     </div>
   </nav>
+  <script>
+
+  </script>
 </header>
 </body>
 </html>

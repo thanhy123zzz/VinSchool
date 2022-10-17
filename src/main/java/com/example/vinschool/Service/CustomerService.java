@@ -15,4 +15,5 @@ public interface CustomerService {
     Customer inforCT(String taikhoan);
 
     Customer inforCT(int idkh);
+    int addNullCustomer(Customer customer);
 }
