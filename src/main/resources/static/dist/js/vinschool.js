@@ -1,26 +1,23 @@
 function FormValidate(event) {
-    var nameParent = document.getElementById('nameParent').value;
+    var nameParent = document.getElementById('fullname').value;
     var errorNameparent = document.getElementById('errorNameparent');
 
-    var phone = document.getElementById('phone').value;
+    var phone = document.getElementById('phonenumber').value;
     var errorPhone = document.getElementById('errorPhone');
 
     var address = document.getElementById('address').value;
     var errorAddress = document.getElementById('errorAddress');
 
-    var workUnit = document.getElementById('workUnit').value;
+    var workUnit = document.getElementById('wokingAt').value;
     var errorWorkunit = document.getElementById('errorWorkunit');
 
     var email = document.getElementById('email').value;
     var errorEmail = document.getElementById('errorEmail');
 
-    var nameBaby = document.getElementById('nameBaby').value;
+    var nameBaby = document.getElementById('fullnameBaby').value;
     var errorNamebaby = document.getElementById('errorNamebaby');
 
-    var nameBaby = document.getElementById('nameBaby').value;
-    var errorNamebaby = document.getElementById('errorNamebaby');
-
-    var regexName = /^[^\d+]*[\d+]{0}[^\d+]*$/;
+    var regexName = /^[a-zA-Z!@#\$%\^\&*\)\(+=._-]{2,}$/g;
 
     var regexAddress = /^([a-zA-Z0-9ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+)$/i;
 

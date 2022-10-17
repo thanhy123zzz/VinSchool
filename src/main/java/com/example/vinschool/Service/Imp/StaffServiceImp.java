@@ -3,11 +3,13 @@ package com.example.vinschool.Service.Imp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.vinschool.DAO.StaffDAO;
 import com.example.vinschool.Model.Staff;
 import com.example.vinschool.Service.StaffService;
 
+@Service
 public class StaffServiceImp implements StaffService{
     @Autowired
     private StaffDAO StaffDAO;

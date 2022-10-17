@@ -11,15 +11,17 @@ public class CustomerMapper implements RowMapper<Customer>{
     @Override
     public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
         Customer cus = new Customer(); //IDNV
-        cus.setId(rs.getInt("IDNV"));
+        cus.setId(rs.getInt("IDKH"));
         cus.setFullname(rs.getString("Ten")); 
         // `Ten`, `NgaySinh`, `CCCD`, `Phone`, `Email`, `GioiTinh`, `TaiKhoan`
         cus.setBirthday(rs.getString("NgaySinh"));
         cus.setCitizenId(rs.getString("CCCD"));
         cus.setPhonenumber(rs.getString("Phone"));
         cus.setEmail(rs.getString("Email"));
-        cus.setGender(rs.getString("GioiTinh"));
-        cus.setTaiKhoan("TaiKhoan");
+        cus.setGender(rs.getBoolean("GioiTinh"));
+        cus.setTaiKhoan(rs.getString("TaiKhoan"));
         return cus;
     }
+
+    
 }
