@@ -10,6 +10,6 @@ public interface CustomerDAO {
     int editCustomer(Customer customer);
     int removeCustomer(int id);
     Customer infoCustomer(String taiKhoan);
-
     Customer infoCustomer(int idkh);
+    int addNullCustomer(Customer customer);
 }

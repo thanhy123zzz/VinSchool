@@ -2,6 +2,7 @@ package com.example.vinschool.Controller;
 
 import ch.qos.logback.core.encoder.EchoEncoder;
 import com.example.vinschool.Model.Accounts;
+import com.example.vinschool.Model.Customer;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -58,6 +59,10 @@ public class LoginController extends Common{
         accounts.setIDrole("KHACHHANG");
         accounts.setMatKhau(passwordEncoder.encode(accounts.getMatKhau()));
         managerService.insertAccount(accounts);
+        Customer ct = new Customer();
+        ct.setFullname(accounts.getTaiKhoan());
+        ct.setTaiKhoan(accounts.getTaiKhoan());
+        customerService.addNullCustomer(ct);
         mv.setViewName("login");
         mv.addObject("userName",accounts.getTaiKhoan());
         return mv;

@@ -43,4 +43,9 @@ public class CustomerServiceImp implements CustomerService{
     public Customer inforCT(int idkh) {
         return customerDAO.infoCustomer(idkh);
     }
+
+    @Override
+    public int addNullCustomer(Customer customer) {
+        return customerDAO.addNullCustomer(customer);
+    }
 }
