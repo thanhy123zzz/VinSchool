@@ -1,5 +1,10 @@
 package com.example.vinschool.Controller;
 
+import com.example.vinschool.Service.AdminService;
+import com.example.vinschool.Service.ManagerService;
+import com.example.vinschool.Service.StaffService;
+import com.example.vinschool.Service.CustomerService;
+import com.example.vinschool.Service.AdmisionTicketService;
 import com.example.vinschool.Model.TinTuc;
 import com.example.vinschool.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +21,11 @@ public class Common {
     ManagerService managerService;
 
     @Autowired
+    StaffService staffService;
+
+    @Autowired
+    AdmisionTicketService admisionTicketService;
+
     TinTucService tinTucService;
 
     @Autowired

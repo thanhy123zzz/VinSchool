@@ -17,8 +17,10 @@ public class CustomerMapper implements RowMapper<Customer>{
         cus.setCitizenId(rs.getString("CCCD"));
         cus.setPhonenumber(rs.getString("Phone"));
         cus.setEmail(rs.getString("Email"));
-        cus.setGender(rs.getString("GioiTinh"));
-        cus.setTaiKhoan("TaiKhoan");
+        cus.setGender(rs.getBoolean("GioiTinh"));
+        cus.setTaiKhoan(rs.getString("TaiKhoan"));
         return cus;
     }
+
+    
 }

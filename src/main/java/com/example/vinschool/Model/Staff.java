@@ -7,12 +7,11 @@ public class Staff extends Customer {
     }
 
     public Staff(int id, String fullname, String birthday, String citizenId, String phonenumber, String email,
-            String gender,
-            String username,String wokingday) {
+            Boolean gender,
+            String username, String wokingday) {
         super(id, fullname, birthday, citizenId, phonenumber, email, gender, username);
         this.wokingday = wokingday;
     }
-
 
     public String getWokingday() {
         return this.wokingday;
@@ -21,6 +20,5 @@ public class Staff extends Customer {
     public void setWokingday(String wokingday) {
         this.wokingday = wokingday;
     }
-
 
 }

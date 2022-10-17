@@ -21,8 +21,8 @@
         <li class="nav-item" id="nav-education">
           <a class="nav-link " th:href="@{/education}">Chương trình đào tạo</a>
         </li>
-        <li class="nav-item" id="nav-admissions">
-          <a class="nav-link " th:href="@{/admissions}">Đăng ký nhập học</a>
+        <li class="nav-item">
+          <a class="nav-link " sec:authorize="hasAnyRole('KHACHHANG')" th:href="@{/admissions}">Đăng ký nhập học</a>
         </li>
         <li class="nav-item" id="nav-rate" onclick="active()">
           <a class="nav-link " th:href="@{/rate}">Đánh giá</a>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout.html}">
+  layout:decorate="~{layout.html}">
 
 <head>
   <title>Đăng ký nhập học</title>
@@ -11,8 +11,56 @@
   <main role="main" layout:fragment="content">
     <!-- /END THE FEATURETTES -->
     <div class="container">
-      <div class="admission">
-        <form method="post" onsubmit="return FormValidate();"> 
+      <div class="admission" th:if="${showdetail != null} ">
+        <h2 class="text-light mb-4" style="font-weight: 600;text-transform: capitalize;"><i
+            class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Thông tin nhập học của bé</h2>
+        <hr class="bg-info mb-5">
+        <div class="row text-light" th:object="${AdmissionTicket}">
+          <div class="col-12">
+          </div>
+          <div class="col-6 mb-2">
+            <p>Họ và tên phụ huynh</p>
+            <input readonly id="fullname" name="fullname" th:value="${AdmissionTicket.fullname}" value="" type="text" class="input-group p-2">
+          </div>
+          <div class="col-6 mb-2">
+            <p>Số điện thoại liên hệ </p>
+            <input readonly id="phonenumber" th:value="${AdmissionTicket.phonenumber}" name="phonenumber" value="" type="text" class="input-group p-2">
+          </div>
+          <div class="col-6 mb-2">
+            <p>Đơn vị công tác </p>
+            <input readonly id="wokingAt" th:value="${AdmissionTicket.wokingAt}" name="wokingAt" value="" type="text" class="input-group p-2">
+          </div>
+          <div class="col-6 mb-2">
+            <p>Email </p>
+            <input readonly id="email" name="email"  th:value="${AdmissionTicket.email}" value="" type="text" class="input-group p-2">
+          </div>
+          <div class="col-12 mb-2">
+            <p>Địa chỉ </p>
+            <input readonly id="address" name="address" th:value="${AdmissionTicket.address}" value="" type="text" class="input-group p-2">
+          </div>
+          <div class="col-6 mb-2">
+            <p>Họ và tên của bé </p>
+            <input readonly id="fullnameBaby" th:value="${AdmissionTicket.fullnameBaby}" name="fullnameBaby" value="" type="text" class="input-group p-2">
+          </div>
+          <div class="col-6 mb-2">
+            <p id="birthdayBaby">Ngày sinh của bé </p>
+            <input readonly min="2000-01-01" max="2022-01-01" id="birthdayBaby" name="birthdayBaby" th:value="${AdmissionTicket.birthdayBaby}"  value="" type="date"
+              class="input-group p-2">
+          </div>
+          <div class="col-12 mb-2">
+            <p id="classBaby">Lớp học của bé </p>
+            <input name="babyClass" id="babyClass" th:value="${AdmissionTicket.babyClass}"  readonly value="" type="text" class="input-group p-2">
+          </div>
+          <div class="col-12 mb-5">
+            <p>Ghi chú</p>
+            <textarea id="note" name="note" th:value="${AdmissionTicket.note}" class="input-group p-2" rows="8"></textarea>
+          </div>
+        </div>
+      </div>
+      <!-- Tab 2 -->
+      <div class="admission" th:unless="${showdetail != null}">
+        <form method="post" th:action="@{/admissions/confirm}">
+          <!-- onsubmit="return FormValidate();" -->
           <h2 class="text-light mb-4" style="font-weight: 600;text-transform: capitalize;"><i
               class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Đăng ký nhập
             học cho bé</h2>
@@ -24,63 +72,77 @@
             </div>
             <div class="col-6 mb-2">
               <p>Họ và tên phụ huynh <span style="color: red;">(*)</span></p>
-              <input id="nameParent" type="text" class="input-group p-2" placeholder="VD: Nguyễn Văn A">
+              <input required id="fullname" name="fullname" value="" type="text" class="input-group p-2"
+                placeholder="VD: Nguyễn Văn A">
               <p class="text-danger p-auto m-2" id="errorNameparent">&nbsp;</p>
             </div>
             <div class="col-6 mb-2">
               <p>Số điện thoại liên hệ <span style="color: red;">(*)</span></p>
-              <input id="phone" type="text" class="input-group p-2" placeholder="VD: 038473622">
+              <input required id="phonenumber" name="phonenumber" value="" type="text" class="input-group p-2"
+                placeholder="VD: 038473622">
               <p class="text-danger p-auto m-2" id="errorPhone">&nbsp;</p>
             </div>
             <div class="col-6 mb-2">
               <p>Đơn vị công tác <span style="color: red;">(*)</span></p>
-              <input id="workUnit" type="text" class="input-group p-2" placeholder="VD: VinGroup - Chi nhánh TP HCM">
+              <input required id="wokingAt" name="wokingAt" value="" type="text" class="input-group p-2"
+                placeholder="VD: VinGroup - Chi nhánh TP HCM">
               <p class="text-danger p-auto m-2" id="errorWorkunit">&nbsp;</p>
             </div>
             <div class="col-6 mb-2">
               <p>Email <span style="color: red;">(*)</span></p>
-              <input id="email" type="text" class="input-group p-2" placeholder="VD: nguyenanhmy12@gmail.com">
+              <input required id="email" name="email" value="" type="text" class="input-group p-2"
+                placeholder="VD: nguyenanhmy12@gmail.com">
               <p class="text-danger p-auto m-2" id="errorEmail">&nbsp;</p>
             </div>
             <div class="col-12 mb-2">
               <p>Địa chỉ <span style="color: red;">(*)</span></p>
-              <input id="address" type="text" class="input-group p-2"
+              <input required id="address" name="address" value="" type="text" class="input-group p-2"
                 placeholder="VD: 12 Đường Nguyễn Văn A Phường Anh Mỹ Quận 1 TP HCM">
               <p class="text-danger p-auto m-2" id="errorAddress">&nbsp;</p>
             </div>
             <div class="col-6 mb-2">
               <p>Họ và tên của bé <span style="color: red;">(*)</span></p>
-              <input id="nameBaby" type="text" class="input-group p-2" placeholder="VD: Nguyễn Văn A">
+              <input required id="fullnameBaby" name="fullnameBaby" value="" type="text" class="input-group p-2"
+                placeholder="VD: Nguyễn Văn A">
               <p class="text-danger p-auto m-2" id="errorNamebaby">&nbsp;</p>
             </div>
             <div class="col-6 mb-2">
               <p id="birthdayBaby">Ngày sinh của bé <span style="color: red;">(*)</span></p>
-              <input id="birthdayBaby" type="date" class="input-group p-2" >
+              <input required min="2000-01-01" max="2022-01-01" id="birthdayBaby" name="birthdayBaby" value=""
+                type="date" class="input-group p-2">
               <p id="errorBirhdayBaby">&nbsp;</p>
             </div>
             <div class="col-12 mb-2">
               <p id="classBaby">Lớp học của bé <span style="color: red;">(*)</span></p>
-              <select class="input-group p-2" name="" id="">
+              <select class="input-group p-2" name="babyClass" id="babyClass" required>
                 <option class="p-1" value="0" disabled selected>-- Chọn lớp học phù hợp với độ tuổi của bé --</option>
-                <option class="p-1" value="1">Lớp mầm(3 tuổi)</option>
-                <option class="p-1" value="2">Lớp chồi(4 tuổi)</option>
-                <option class="p-1" value="3">Lớp lá(5 tuổi)</option>
+                <option class="p-1" value="3">Lớp mầm(3 tuổi)</option>
+                <option class="p-1" value="4">Lớp chồi(4 tuổi)</option>
+                <option class="p-1" value="5">Lớp lá(5 tuổi)</option>
               </select>
               <p id="errorClassBaby">&nbsp;</p>
             </div>
+            <div class="col-6 mb-2" hidden>
+              <p class="text-light">ID</p>
+              <input required id="id" name="id" th:value="${AdmissionTicket.id}" value="" type="text" class="input-group p-2"
+                placeholder="VD: ...">
+              <p class="text-danger p-auto m-2" id="errorNamebaby">&nbsp;</p>
+            </div>
             <div class="col-12 mb-5">
               <p>Ghi chú</p>
-              <textarea class="input-group p-2" rows="8"></textarea>
+              <textarea id="note" name="note" class="input-group p-2" rows="8"></textarea>
             </div>
             <div class="col-6">
-              <button type="button" class="float-right btn btn-info mb-5 p-3" data-target="#messPaymet" data-toggle="modal">Đăng ký nhập học</button>
+              <button type="submit" id="Btn-confirm-admission" class="float-right btn btn-info mb-5 p-3"
+                data-toggle="modal">Đăng ký nhập học</button> <!-- data-target="#messPaymet" -->
             </div>
             <div class="col-6">
-              <button type="reset" class="float-left btn btn-danger mb-5 p-3" style="width: 30%;">Hủy</button>
+              <button type="reset" data-toggle="modal" data-target="#messPaymet" id="Btn-confirm-admission" class="float-left btn btn-danger mb-5 p-3" style="width: 30%;">Hủy</button>
             </div>
           </div>
         </form>
       </div>
+      <!-- End tab 2 -->
     </div><!-- /.container -->
     <!-- Payment -->
     <div class="payment">
@@ -106,8 +168,7 @@
                     placeholder="XXXX - XXXX - XXXX - XXXX">
                 </div>
                 <div class="col-6 p-2">
-                  <h4>Ngày hết hạn</h4><input class=" input-group pt-2 pb-2 pl-5 pr-5" type="text"
-                    placeholder="MM/YY">
+                  <h4>Ngày hết hạn</h4><input class=" input-group pt-2 pb-2 pl-5 pr-5" type="text" placeholder="MM/YY">
                 </div>
                 <div class="col-12 p-2 mt-5">
                   <h4 class="text-capitalize" style="font-weight: 600;">Thông tin học phí</h4>
@@ -159,8 +220,7 @@
                 <i class="fa fa-check-circle" aria-hidden="true"></i>
               </div>
               <div class="col-10">
-                <input id="codeconfirm" type="text" class="input-group"
-                  placeholder="Nhập mã xác nhận">
+                <input id="codeconfirm" type="text" class="input-group" placeholder="Nhập mã xác nhận">
               </div>
             </div>
           </div>
@@ -192,13 +252,14 @@
 
           <!-- Modal Header -->
           <div class="modal-header">
-            <h4 class="modal-title">Bạn có muốn thanh toán học phí cho bé luôn không?</h4>
+            <h4 class="modal-title">Đăng ký nhập học thành công!<br>Bạn có muốn thanh toán học phí cho bé luôn không?
+            </h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-footer">
             <button type="button" data-dismiss="modal" data-toggle="modal" data-target="#payment-tuition"
               class="btn btn-info">Đồng ý</button>
-              <button type="button" data-dismiss="modal" class="btn btn-danger">Hủy</button>
+            <button type="button" data-dismiss="modal" class="btn btn-danger">Hủy</button>
           </div>
         </div>
       </div>
@@ -206,9 +267,8 @@
     <!-- End Payment -->
     <!-- FOOTER -->
   </main>
-  <script src="dist/js/popper.min.js"></script>
-  <script src="dist/js/bootstrap.min.js"></script>
-  <script src="dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/dist/js/admissionticket.js"></script>
+  <script src="/dist/js/vinschool.js"></script>
 </body>
 
 </html>

@@ -3,6 +3,7 @@ package com.example.vinschool.Service.Imp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.vinschool.DAO.CustomerDAO;
 import com.example.vinschool.Model.Customer;
@@ -33,12 +34,18 @@ public class CustomerServiceImp implements CustomerService{
     public int removeCustomer(int id){
         return customerDAO.removeCustomer(id);
     }
-
     @Override
+
+    public Customer findIDCustomers(String TaiKhoan){
+        return customerDAO.findIDCustomers(TaiKhoan).get(0);
+    }
+    @Override
+    public List<Customer> checkIDCustomers(int id){
+        return customerDAO.checkIDCustomers(id);
+
     public Customer inforCT(String taikhoan) {
         return customerDAO.infoCustomer(taikhoan);
     }
-
     @Override
     public Customer inforCT(int idkh) {
         return customerDAO.infoCustomer(idkh);

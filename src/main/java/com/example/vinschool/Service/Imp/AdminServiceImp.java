@@ -3,6 +3,7 @@ package com.example.vinschool.Service.Imp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.vinschool.DAO.AdminDAO;
 import com.example.vinschool.Model.Admin;
@@ -35,6 +36,13 @@ public class AdminServiceImp implements AdminService{
     }
 
     @Override
+    public Admin findOneById(int id){
+        return AdminDAO.findById(id).get(0);
+    }
+
+    @Override
+    public List<Admin> searchByFullName(String fullname){
+        return AdminDAO.searchByFullName(fullname);
     public Admin showAdmin(String TaiKhoan) {
         return AdminDAO.showAdmin(TaiKhoan);
     }

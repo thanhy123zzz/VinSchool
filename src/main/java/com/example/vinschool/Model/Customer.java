@@ -7,12 +7,12 @@ public class Customer extends Accounts {
     private String citizenId;
     private String phonenumber;
     private String email;
-    private String gender;
+    private boolean gender;
 
     public Customer() {
     }
 
-    public Customer(int id,String fullname, String birthday, String citizenId, String phonenumber,String email, String gender,
+    public Customer(int id,String fullname, String birthday, String citizenId, String phonenumber,String email, boolean gender,
             String username) {
         super(username);
         this.id = id;
@@ -22,6 +22,13 @@ public class Customer extends Accounts {
         this.phonenumber = phonenumber;
         this.gender = gender;
         this.email = email;
+    }
+
+    public Customer(int idCus, String fullname, String email,String phone){
+        this.id = idCus;
+        this.fullname = fullname;
+        this.email = email;
+        this.phonenumber = phone;
     }
     public Customer(int id){
         this.id = id;
@@ -76,12 +83,30 @@ public class Customer extends Accounts {
         this.phonenumber = phonenumber;
     }
 
-    public String getGender() {
+    public boolean isGender() {
         return this.gender;
     }
 
-    public void setGender(String gender) {
+    public boolean getGender() {
+        return this.gender;
+    }
+
+    public void setGender(boolean gender) {
         this.gender = gender;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", fullname='" + getFullname() + "'" +
+            ", birthday='" + getBirthday() + "'" +
+            ", citizenId='" + getCitizenId() + "'" +
+            ", phonenumber='" + getPhonenumber() + "'" +
+            ", email='" + getEmail() + "'" +
+            ", gender='" + isGender() + "'" +
+            "}";
+    }
+
 
 }

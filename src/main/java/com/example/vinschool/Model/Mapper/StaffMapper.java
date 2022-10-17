@@ -19,8 +19,9 @@ public class StaffMapper implements RowMapper<Staff>{
         staff.setCitizenId(rs.getString("CCCD"));
         staff.setPhonenumber(rs.getString("Phone"));
         staff.setEmail(rs.getString("Email"));
-        staff.setGender(rs.getString("GioiTinh"));
-        staff.setTaiKhoan("TaiKhoan");
+        staff.setGender(rs.getBoolean("GioiTinh"));
+        staff.setTaiKhoan(rs.getString("TaiKhoan"));
+        staff.setWokingday(rs.getString("NgayBatDauLam"));
         return staff;
     }
 }
