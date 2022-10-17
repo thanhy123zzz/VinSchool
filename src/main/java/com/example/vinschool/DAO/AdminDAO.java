@@ -9,5 +9,7 @@ public interface AdminDAO {
     int addAdmin(Admin Admin);
     int editAdmin(Admin Admin);
     int removeAdmin(int id);
+    List<Admin> findById(int id);
+    List<Admin> searchByFullName(String fullname);
     Admin showAdmin(String TaiKhoan);
 }

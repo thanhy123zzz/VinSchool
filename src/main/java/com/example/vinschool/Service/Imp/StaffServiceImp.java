@@ -3,6 +3,7 @@ package com.example.vinschool.Service.Imp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.vinschool.DAO.StaffDAO;
 import com.example.vinschool.Model.Staff;

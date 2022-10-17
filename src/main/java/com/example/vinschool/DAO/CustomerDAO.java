@@ -9,6 +9,8 @@ public interface CustomerDAO {
     int addCustomer(Customer customer);
     int editCustomer(Customer customer);
     int removeCustomer(int id);
+    List<Customer> findIDCustomers(String TaiKhoan);
+    List<Customer> checkIDCustomers(int id);
     Customer infoCustomer(String taiKhoan);
 
     Customer infoCustomer(int idkh);

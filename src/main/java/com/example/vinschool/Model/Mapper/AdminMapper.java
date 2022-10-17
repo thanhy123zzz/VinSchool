@@ -19,8 +19,8 @@ public class AdminMapper implements RowMapper<Admin>{
         Admin.setCitizenId(rs.getString("CCCD"));
         Admin.setPhonenumber(rs.getString("Phone"));
         Admin.setEmail(rs.getString("Email"));
-        Admin.setGender(rs.getString("GioiTinh"));
-        Admin.setTaiKhoan("TaiKhoan");
+        Admin.setGender(rs.getBoolean("GioiTinh"));
+        Admin.setTaiKhoan(rs.getString("TaiKhoan"));
         return Admin;
     }
 }

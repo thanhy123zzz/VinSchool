@@ -17,19 +17,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
+
 <body>
 
-<!--header-->
-<div th:replace="fragments/header.html :: header"></div>
-<!--end header-->
+  <!--header-->
+  <div th:replace="fragments/header.html :: header"></div>
+  <!--end header-->
 
-<!--main-->
-<div layout:fragment="content"></div>
-<!--footer-->
-<div th:replace="fragments/footer.html :: footer"></div>
-<!--end footer-->
-<!--end main-->
-
+  <!--main-->
+  <div layout:fragment="content"></div>
+  <!--footer-->
+  <div th:replace="fragments/footer.html :: footer"></div>
+  <!--end footer-->
+  <!--end main-->
 <script src="/dist/js/popper.min.js"></script>
 <script src="/dist/js/bootstrap.min.js"></script>
 <script src="/dist/js/bootstrap.bundle.min.js"></script>
@@ -51,4 +51,5 @@ function load_news(){
 }
 </script>
 </body>
+
 </html>

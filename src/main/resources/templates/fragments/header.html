@@ -22,7 +22,7 @@
           <a class="nav-link " th:href="@{/education}">Chương trình đào tạo</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " th:href="@{/admissions}">Đăng ký nhập học</a>
+          <a class="nav-link " sec:authorize="hasAnyRole('KHACHHANG')" th:href="@{/admissions}">Đăng ký nhập học</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " th:href="@{/rate}">Đánh giá</a>

@@ -10,10 +10,9 @@ import com.example.vinschool.DAO.AdminDAO;
 import com.example.vinschool.Model.Admin;
 import com.example.vinschool.Model.Mapper.AdminMapper;
 
-
 @Repository
-public class AdminImp implements AdminDAO{
-    
+public class AdminImp implements AdminDAO {
+
     @Autowired
     JdbcTemplate jdbctemplate;
 
@@ -25,19 +24,37 @@ public class AdminImp implements AdminDAO{
     }
 
     @Override
-    public int addAdmin(Admin Admin){
-        String sql = "INSERT INTO `vinschool`.`admin` (`Ten`, `NgaySinh`, `CCCD`, `Phone`, `Email`, `GioiTinh`, `TaiKhoan`) VALUES (?,?,?,?,?,?,'admin123');";
-        return jdbctemplate.update(sql, new Object[] {Admin.getFullname(),Admin.getBirthday(),Admin.getCitizenId(),
-        Admin.getPhonenumber(),Admin.getEmail(),Admin.getGender(),Admin.getTaiKhoan()});
+    public int addAdmin(Admin Admin) {
+        String sql = "INSERT INTO `vinschool`.`admin` (`Ten`, `NgaySinh`, `CCCD`, `Phone`, `Email`, `GioiTinh`, `TaiKhoan`) VALUES (?,?,?,?,?,?,?);";
+        return jdbctemplate.update(sql, new Object[] { Admin.getFullname(), Admin.getBirthday(), Admin.getCitizenId(),
+                Admin.getPhonenumber(), Admin.getEmail(), Admin.getGender(), Admin.getTaiKhoan() });
     }
 
     @Override
-    public int editAdmin(Admin Admin){
-        String sql = "UPDATE `vinschool`.`admin` SET  `Ten` = ?, `NgaySinh` = ?, `CCCD` = ?, `Phone` = ?, `Email` = ?, `GioiTinh` = ?, `TaiKhoan` = ? WHERE `IDNV` = ?";
-        return jdbctemplate.update(sql, new Object[] {Admin.getFullname(),Admin.getBirthday(),Admin.getCitizenId(),
-        Admin.getPhonenumber(),Admin.getEmail(),Admin.getGender(),Admin.getTaiKhoan(),Admin.getId()});
+    public int editAdmin(Admin Admin) {
+        String sql = "UPDATE `vinschool`.`admin` SET  `Ten` = ?, `NgaySinh` = ?, `CCCD` = ?, `Phone` = ?, `Email` = ?, `GioiTinh` = ?, `TaiKhoan` = ? WHERE `IDADMIN` = ?";
+        return jdbctemplate.update(sql, new Object[] { Admin.getFullname(), Admin.getBirthday(), Admin.getCitizenId(),
+                Admin.getPhonenumber(), Admin.getEmail(), Admin.getGender(), Admin.getTaiKhoan(), Admin.getId() });
     }
+
     @Override
+    public int removeAdmin(int id) {
+        String sql = "DELETE from `vinschool`.`admin` WHERE IDADMIN = " + id + "";
+        return jdbctemplate.update(sql);
+    }
+
+    @Override
+    public List<Admin> findById(int id) {
+        String sql = "SELECT * FROM vinschool.admin WHERE IDADMIN = " + id + "";
+        List<Admin> list = jdbctemplate.query(sql, new AdminMapper());
+        return list;
+    } 
+
+    @Override
+    public List<Admin> searchByFullName(String fullname) {
+        String sql = "SELECT * FROM vinschool.admin WHERE Ten like '%"+fullname+"%'";
+        List<Admin> list = jdbctemplate.query(sql, new AdminMapper());
+        return list;
 	public int removeAdmin(int id) {
 		String sql = "DELETE from `vinschool`.`admin` WHERE IDADMIN = ?";
 		return jdbctemplate.update(sql);
