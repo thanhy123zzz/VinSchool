@@ -11,4 +11,5 @@ public interface AdminDAO {
     int removeAdmin(int id);
     List<Admin> findById(int id);
     List<Admin> searchByFullName(String fullname);
+    Admin showAdmin(String TaiKhoan);
 }

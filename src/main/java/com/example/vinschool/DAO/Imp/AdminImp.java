@@ -55,5 +55,18 @@ public class AdminImp implements AdminDAO {
         String sql = "SELECT * FROM vinschool.admin WHERE Ten like '%"+fullname+"%'";
         List<Admin> list = jdbctemplate.query(sql, new AdminMapper());
         return list;
+	public int removeAdmin(int id) {
+		String sql = "DELETE from `vinschool`.`admin` WHERE IDADMIN = ?";
+		return jdbctemplate.update(sql);
+	}
+
+    @Override
+    public Admin showAdmin(String TaiKhoan) {
+        String sql = "SELECT * FROM admin where TaiKhoan='"+TaiKhoan+"'";
+        List<Admin> list = jdbctemplate.query(sql, new AdminMapper());
+        if(list.size()==1) {
+            return list.get(0);
+        }
+        else return null;
     }
 }

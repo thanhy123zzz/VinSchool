@@ -9,99 +9,31 @@
 <body layout:fragment="content">
   <main role="main">
     <div class="container">
-      <div class="news">
+      <div class="news" id="news">
         <h2 class="text-capitalize mb-4 text-light" style="font-weight: 600;"><i class="fa fa-newspaper-o"
             aria-hidden="true"></i>&nbsp;Tin tức</h2>
         <hr class=" bg-info mb-5">
-        <div class="row featurette text-light">
+        <th:block th:each="tin : ${tinTucs}">
+        <div class="row featurette text-light" >
+          <input id="limit" th:value="${tinTucs.size()}" style="display: none"/>
           <div class="col-md-7">
-            <h2 class="news-title">Những lợi ích khi cho trẻ chơi với những chiếc hộp giác quan</h2>
-            <p class="lead">Chiếc hộp giác quan (Sensory bins) là một công cụ giúp trẻ tìm tòi và học hỏi thông qua
-              những trò chơi giác quan. Tại các trường Mầm non Vinschool, các hoạt động với chiếc hộp giác quan được áp
-              dụng linh hoạt trong các giờ khám phá...</p>
-            <p style="font-size: 14px;"><i>29/09/2022</i></p>
-            <h4 class="view-more"><a href="#">Xem tiếp <i class="fa fa-arrow-right" aria-hidden="true"></i></a></h4>
+            <h2 class="news-title" th:text="${tin.getTitle()}"></h2>
+            <p class="lead" th:text="${tin.getSubTitle()}"></p>
+            <p style="font-size: 14px;"><i th:text="${tin.getNgayTao()}"></i></p>
+            <h4 class="view-more"><a th:href="@{${'/detail-news/'+tin.getIdTin()}}">Xem tiếp <i class="fa fa-arrow-right" aria-hidden="true"></i></a></h4>
           </div>
           <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" height="500" width="500" src="images/news/news1.jpg"
+            <img class="featurette-image img-fluid mx-auto" height="300" th:src="@{${'/load-image-tin/'+tin.getIdTin()}}"
               alt="Generic placeholder image">
           </div>
         </div>
         <hr class="mb-5 mt-5" style="background-color: #CDA666;">
-        <div class="row featurette text-light">
-          <div class="col-md-7">
-            <h2 class="news-title">“Vinschool hợp tác quốc tế để vươn tầm xuất sắc”</h2>
-            <p class="lead">Nỗ lực cải tiến để đạt giám định quốc tế CIS, hợp tác với thương hiệu giáo dục số 1 của Anh
-              quốc, cho đối tác nước ngoài góp vốn… là những bước đi chiến lược của Vinschool.</p>
-            <p style="font-size: 14px;"><i>07/09/2022</i></p>
-            <h4 class="view-more text-dark"><a href="#">Xem tiếp <i class="fa fa-arrow-right"
-                  aria-hidden="true"></i></a></h4>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" height="500" width="500" src="images/news/news2.jpg"
-              alt="Generic placeholder image">
-          </div>
-        </div>
-        <hr class="mb-5 mt-5" style="background-color: #CDA666;">
-        <div class="row featurette text-light">
-          <div class="col-md-7">
-            <h2 class="news-title">Trường Mầm non Vinschool Grand Park chính thức đi vào hoạt động</h2>
-            <p class="lead">Ngày 5/9/2022, trường Mầm non Vinschool Grand Park - TP.HCM chính thức đi vào hoạt động,
-              chào đón gần 600 Vinsers đầu tiên.</p>
-            <p style="font-size: 14px;"><i>06/09/2022</i></p>
-            <h4 class="view-more text-dark"><a href="#">Xem tiếp <i class="fa fa-arrow-right"
-                  aria-hidden="true"></i></a></h4>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" height="500" width="500" src="images/news/news3.jpg"
-              alt="Generic placeholder image">
-          </div>
-        </div>
-        <hr class="mb-5 mt-5" style="background-color: #CDA666;">
-        <div class="row featurette text-light">
-          <div class="col-md-7">
-            <h2 class="news-title">Các phương pháp giáo dục giúp phát triển ngôn ngữ sớm ở trẻ</h2>
-            <p class="lead">Ngôn ngữ là một phần vô cùng quan trọng trong quá trình phát triển của trẻ, là nền tảng để
-              trẻ phát triển khả năng giao tiếp và học hỏi, trình bày suy nghĩ và ý tưởng, bày tỏ và thấu hiểu cảm xúc,
-              phát triển và duy...</p>
-            <p style="font-size: 14px;"><i>30/08/2022</i></p>
-            <h4 class="view-more text-dark"><a href="#">Xem tiếp <i class="fa fa-arrow-right"
-                  aria-hidden="true"></i></a></h4>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" height="500" width="500" src="images/news/news4.jpg"
-              alt="Generic placeholder image">
-          </div>
-        </div>
-        <hr class="mb-5 mt-5" style="background-color: #CDA666;">
-        <div class="row featurette text-light">
-          <div class="col-md-7">
-            <h2 class="news-title">Lợi ích của lĩnh vực Nghệ thuật sáng tạo đối với trẻ Mầm non</h2>
-            <p class="lead">Nghệ thuật sáng tạo là một trong 6 lĩnh vực học tập trong chương trình học tại trường Mầm
-              non Vinschool, bao gồm các hoạt động thu hút trí tưởng tượng của trẻ một cách tích cực thông qua tạo hình,
-              nhảy múa, âm nhạc, đóng kịch hoặc...</p>
-            <p style="font-size: 14px;"><i>29/08/2022</i></p>
-            <h4 class="view-more text-dark"><a href="#">Xem tiếp <i class="fa fa-arrow-right"
-                  aria-hidden="true"></i></a></h4>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" height="500" width="500" src="images/news/news5.jpg"
-              alt="Generic placeholder image">
-          </div>
-        </div>
-        <hr class="mb-5 mt-5" style="background-color: #CDA666;">
-        <ul class="pagination justify-content-center">
-          <li class="page-item next-back"><a class="page-link" href="#"><i class="fa fa-angle-left"
-                style="font-weight: bold;" aria-hidden="true"></i></a></li>
-          <li class="page-item active"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">...</a></li>
-          <li class="page-item"><a class="page-link" href="#">20</a></li>
-          <li class="page-item next-back"><a class="page-link" href="#"><i class="fa fa-angle-right"
-                style="font-weight: bold;" aria-hidden="true"></i></a></li>
-        </ul>
+        </th:block>
+        <a class="pagination justify-content-center" onclick="load_news()" style="text-decoration: none; font-size: 22px; cursor:pointer;">
+          Xem thêm
+        </a>
       </div>
+
       <!-- xxxx -->
       <div class="news">
         <h2 class="text-capitalize mb-4 text-light" style="font-weight: 600;"><i class="fa fa-calendar"
@@ -151,96 +83,6 @@
         <li class="page-item next-back"><a class="page-link" href="#"><i class="fa fa-angle-right"
               style="font-weight: bold;" aria-hidden="true"></i></a></li>
       </ul>
-      </div>
-    </div>
-    <!-- HHHHH -->
-    <div class="container">
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!--
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          <li data-target="#myCarousel" data-slide-to="3"></li>
-          <li data-target="#myCarousel" data-slide-to="4"></li>
-          <li data-target="#myCarousel" data-slide-to="5"></li>
-          <li data-target="#myCarousel" data-slide-to="6"></li>
-          <li data-target="#myCarousel" data-slide-to="7"></li>
-        </ol> -->
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="first-slide" src="images/slide/vintd1.jpg" alt="First slide">
-            <div class="container">
-              <div class="carousel-caption text-center m-auto mb-2 dark-opacity">
-                <p >Trường Mầm Non Vinschool Grand Park Thành Phố Thủ Đức nằm trong khu đô thị Vinhomes Grand Park, thuộc khu dân cư và công viên Phước Thiện, đường Nguyễn Xiển, phường Long Bình và Long Thạnh Mỹ, Quận 9, TP. Hồ Chí Minh.</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="second-slide" src="images/slide/vintd2.jpg" alt="Second slide">
-            <div class="container">
-              <div class="carousel-caption text-center m-auto dark-opacity">
-                <p >Trường có khuôn viên vui chơi rộng rãi, nhiều cây xanh.</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="third-slide" src="images/slide/vintd3.jpg" alt="Third slide">
-            <div class="container">
-              <div class="carousel-caption text-center m-auto dark-opacity">
-                <p >Phòng học được đầu tư các trang thiết bị học tập hiện đại, kích thích sự sáng tạo và niềm yêu thích học tập của các bạn nhỏ.</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="four-slide" src="images/slide/vintd4.jpg" alt="Four slide">
-            <div class="container">
-              <div class="carousel-caption text-center m-auto dark-opacity">
-                <p >Trong chương trình Mầm non Quốc tế IPC, lớp học được chia thành các trung tâm học tập để học sinh trải nghiệm những chủ đề bổ ích.</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="four-slide" src="images/slide/vintd5.jpg" alt="Fif slide">
-            <div class="container">
-              <div class="carousel-caption text-center m-auto dark-opacity">
-                <p >Khu vui chơi trong nhà là một trong những không gian yêu thích của học sinh, nơi các con vui chơi và rèn luyện các kỹ năng vận động thô - tinh.</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="four-slide" src="images/slide/vintd6.jpg" alt="Six slide">
-            <div class="container">
-              <div class="carousel-caption text-center m-auto dark-opacity">
-                <p >Phòng Đa năng rộng rãi là nơi các con tham gia vào nhiều trò chơi vận động khác nhau.</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="four-slide" src="images/slide/vintd7.jpg" alt="Seven slide">
-            <div class="container">
-              <div class="carousel-caption text-center m-auto dark-opacity">
-                <p >Phòng Nghệ thuật là không gian để con tập múa/kịch và chuẩn bị hóa trang trong các tiết học nghệ thuật sáng tạo.</p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="four-slide" src="images/slide/vintd8.jpg" alt="Eight slide">
-            <div class="container">
-              <div class="carousel-caption text-center m-auto dark-opacity">
-                <p >Thư viện mang đến cho các con không gian đọc sách thoải mái, tự do trải nghiệm kiến thức cùng bạn bè.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
       </div>
     </div>
   </main>

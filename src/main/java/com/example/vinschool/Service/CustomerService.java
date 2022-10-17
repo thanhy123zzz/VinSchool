@@ -11,4 +11,8 @@ public interface CustomerService {
     int removeCustomer(int id);
     Customer findIDCustomers(String TaiKhoan);
     List<Customer> checkIDCustomers(int id);
+
+    Customer inforCT(String taikhoan);
+
+    Customer inforCT(int idkh);
 }

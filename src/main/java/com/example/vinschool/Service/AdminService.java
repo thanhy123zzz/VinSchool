@@ -11,4 +11,5 @@ public interface AdminService {
     int removeAdmin(int id);
     Admin findOneById(int id);
     List<Admin> searchByFullName(String fullname);
+    Admin showAdmin(String TaiKhoan);
 }

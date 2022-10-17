@@ -5,12 +5,15 @@ import com.example.vinschool.Service.ManagerService;
 import com.example.vinschool.Service.StaffService;
 import com.example.vinschool.Service.CustomerService;
 import com.example.vinschool.Service.AdmisionTicketService;
+import com.example.vinschool.Model.TinTuc;
+import com.example.vinschool.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.ModelAndView;
 
 public class Common {
+
     ModelAndView mv = new ModelAndView();
     @Autowired
     public PasswordEncoder passwordEncoder;
@@ -18,14 +21,19 @@ public class Common {
     ManagerService managerService;
 
     @Autowired
-	AdminService adminService;
-
-    @Autowired
     StaffService staffService;
 
     @Autowired
-    CustomerService customerService;
+    AdmisionTicketService admisionTicketService;
+
+    TinTucService tinTucService;
 
     @Autowired
-    AdmisionTicketService admisionTicketService;
+    AdminService adminService;
+
+    @Autowired
+    DanhGiaService danhGiaService;
+
+    @Autowired
+    CustomerService customerService;
 }
