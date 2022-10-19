@@ -1,8 +1,6 @@
 package com.example.vinschool.Controller;
 
-import com.example.vinschool.Model.Admin;
-import com.example.vinschool.Model.DanhGia;
-import com.example.vinschool.Model.TinTuc;
+import com.example.vinschool.Model.*;
 import com.example.vinschool.Service.TinTucService;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.stereotype.Controller;
@@ -91,8 +89,6 @@ public class ManagerController extends Common {
 		adminService.removeAdmin(id);
 		return "redirect:/manager/manager-user";
 	}
-
-
 
     @GetMapping("/manager-user/search" )
 	public ModelAndView searchUser(@RequestParam("keyword") String search) {

@@ -40,9 +40,9 @@ public class CustomerServiceImp implements CustomerService{
         return customerDAO.findIDCustomers(TaiKhoan).get(0);
     }
     @Override
-    public List<Customer> checkIDCustomers(int id){
+    public List<Customer> checkIDCustomers(int id) {
         return customerDAO.checkIDCustomers(id);
-
+    }
     public Customer inforCT(String taikhoan) {
         return customerDAO.infoCustomer(taikhoan);
     }

@@ -26,6 +26,7 @@ public class Common {
     @Autowired
     AdmisionTicketService admisionTicketService;
 
+    @Autowired
     TinTucService tinTucService;
 
     @Autowired

@@ -11,9 +11,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav navbar-brand mr-auto">
+      <ul class="navbar-nav navbar-brand mr-auto" id="nav-ul">
         <li class="nav-item" id = "nav-home">
-          <a class="nav-link" th:href="@{/}">Trang chủ<span class="sr-only">(current)</span></a>
+          <a class="nav-link" th:href="@{/trang-chu}">Trang chủ</a>
         </li>
         <li class="nav-item" id="nav-news">
           <a class="nav-link" th:href="@{/news}">Tin tức & sự kiện</a>
@@ -24,14 +24,14 @@
         <li class="nav-item">
           <a class="nav-link " sec:authorize="hasAnyRole('KHACHHANG')" th:href="@{/admissions}">Đăng ký nhập học</a>
         </li>
-        <li class="nav-item" id="nav-rate" onclick="active()">
+        <li class="nav-item" id="nav-rate">
           <a class="nav-link " th:href="@{/rate}">Đánh giá</a>
         </li>
         <li class="nav-item" id="nav-contact">
           <a class="nav-link " th:href="@{/contact}">Liên hệ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " sec:authorize="hasAnyRole('ROLE_ADMIN','NHANVIEN')" th:href="@{/manager/manager-account}"><i class="fa fa-suitcase"></i>Quản lý</a>
+          <a class="nav-link " sec:authorize="hasAnyRole('ROLE_ADMIN','NHANVIEN')" th:href="@{/manager/manager-user}"><i class="fa fa-suitcase"></i>Quản lý</a>
         </li>
       </ul>
       <ul class="navbar-nav navbar-brand">
@@ -43,7 +43,16 @@
     </div>
   </nav>
   <script>
-
+    $(function(){
+      var current = location.pathname;
+      $('#nav-ul li a').each(function(){
+        var $this = $(this);
+        // if the current path is like this link, make it active
+        if($this.attr('href').indexOf(current) !== -1){
+          $this.addClass('active');
+        }
+      })
+    })
   </script>
 </header>
 </body>

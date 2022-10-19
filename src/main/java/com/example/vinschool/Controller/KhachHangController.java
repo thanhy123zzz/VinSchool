@@ -31,9 +31,10 @@ import java.util.List;
 
 @Controller
 public class KhachHangController extends Common {
-    @GetMapping("/")
+    @GetMapping(value = {"/","/trang-chu"})
     public ModelAndView home(Principal principal) {
         mv.setViewName("index");
+        mv.addObject("index",true);
         try{
             mv.addObject("userName",principal.getName());
         }
@@ -113,7 +114,7 @@ public class KhachHangController extends Common {
         float diem = (float) tong/(float)list.size();
         mv.setViewName("rating");
         mv.addObject("rates",list);
-        mv.addObject("diem",diem);
+        mv.addObject("diem",(float) Math.round(diem * 100) / 100);
         return mv;
     }
 

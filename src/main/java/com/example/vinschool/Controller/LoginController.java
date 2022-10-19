@@ -23,6 +23,7 @@ public class LoginController extends Common{
         return "403";
     }
 
+    //Hiện form đăng nhập
     @GetMapping("/login")
     public ModelAndView login(String success){
         mv.addObject("userName","");
@@ -33,6 +34,7 @@ public class LoginController extends Common{
         return mv;
     }
 
+    //Hiện form đăng ký
     @GetMapping("/signup")
     public ModelAndView signup(){
         mv.addObject("message","");
@@ -40,6 +42,7 @@ public class LoginController extends Common{
         return mv;
     }
 
+//check account có tồn tại
     @PostMapping("/check-account")
     public ModelAndView check_account(@RequestParam("userName") String userName){
         if(managerService.checkAccount(userName))
@@ -54,6 +57,7 @@ public class LoginController extends Common{
             return mv;
         }
     }
+    // đăng ký thành công
     @PostMapping("/login")
     public ModelAndView insert_account(Accounts accounts){
         accounts.setIDrole("KHACHHANG");

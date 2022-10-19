@@ -29,7 +29,7 @@ public class WebSecurityConfig{
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/trang-chu")
                 .failureUrl("/login?success=fail")
                 .loginProcessingUrl("/j_spring_security_check")
                 .usernameParameter("TaiKhoan")
