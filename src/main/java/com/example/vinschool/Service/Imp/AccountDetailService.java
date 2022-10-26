@@ -53,4 +53,9 @@ public class AccountDetailService implements UserDetailsService, ManagerService 
     public boolean checkAccount(String userName) {
         return accountsDao.checkAccount(userName) == null;
     }
+
+    @Override
+    public List<Accounts> showList(){
+        return accountsDao.showList();
+    }
 }

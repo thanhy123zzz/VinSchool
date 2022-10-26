@@ -3,6 +3,7 @@ package com.example.vinschool.Controller;
 import ch.qos.logback.core.encoder.EchoEncoder;
 import com.example.vinschool.Model.Accounts;
 import com.example.vinschool.Model.Customer;
+
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -17,16 +18,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
 
 @Controller
-public class LoginController extends Common{
+public class LoginController extends Common {
     @GetMapping("/403")
-    public String error(){
+    public String error() {
         return "403";
     }
 
     @GetMapping("/login")
-    public ModelAndView login(String success){
-        mv.addObject("userName","");
-        if(Objects.equals(success, "fail")) {
+    public ModelAndView login(String success) {
+        mv.addObject("userName", "");
+        if (Objects.equals(success, "fail")) {
             mv.addObject("message", "Đăng nhập thất bại");
         }
         mv.setViewName("login");
@@ -34,28 +35,28 @@ public class LoginController extends Common{
     }
 
     @GetMapping("/signup")
-    public ModelAndView signup(){
-        mv.addObject("message","");
+    public ModelAndView signup() {
+        mv.addObject("message", "");
         mv.setViewName("signup");
         return mv;
     }
 
     @PostMapping("/check-account")
-    public ModelAndView check_account(@RequestParam("userName") String userName){
-        if(managerService.checkAccount(userName))
-        {
-            mv.addObject("message","");
+    public ModelAndView check_account(@RequestParam("userName") String userName) {
+        if (managerService.checkAccount(userName)) {
+            mv.addObject("message", "");
             mv.setViewName("signup :: #message");
             return mv;
 
-        }else{
-            mv.addObject("message","Tài khoản đã tồn tại");
+        } else {
+            mv.addObject("message", "Tài khoản đã tồn tại");
             mv.setViewName("signup :: #message");
             return mv;
         }
     }
+
     @PostMapping("/login")
-    public ModelAndView insert_account(Accounts accounts){
+    public ModelAndView insert_account(Accounts accounts) {
         accounts.setIDrole("KHACHHANG");
         accounts.setMatKhau(passwordEncoder.encode(accounts.getMatKhau()));
         managerService.insertAccount(accounts);
@@ -64,7 +65,7 @@ public class LoginController extends Common{
         ct.setTaiKhoan(accounts.getTaiKhoan());
         customerService.addNullCustomer(ct);
         mv.setViewName("login");
-        mv.addObject("userName",accounts.getTaiKhoan());
+        mv.addObject("userName", accounts.getTaiKhoan());
         return mv;
     }
 }

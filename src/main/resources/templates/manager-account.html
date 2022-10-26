@@ -41,168 +41,18 @@
                                 <tr>
                                     <th>Tên đăng nhập</th>
                                     <th>Mật khẩu</th>
-                                    <th>Họ và tên phụ huynh</th>
-                                    <th>Email</th>
-                                    <th>Số điện thoại</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>1222222222</td>
-                                    <td>Nguyễn Xuân Anh</td>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>037464533</td>
+                                <tr th:each="account: ${listAccount}">
+                                    <td th:text="${account.getTaiKhoan()}"></td>
+                                    <td th:text="${account.getMatKhau()}"></td>
                                     <td>
-                                        <button class="btn btn-warning" data-target="#editAccount"
+                                        <button th:href="@{/manager/manager-account/removeAccount/(taikhoan=${account.getTaiKhoan()})}" class="btn btn-warning" data-target="#editAccount"
                                             data-toggle="modal"><i class="fa fa-wrench" aria-hidden="true"></i></button>
                                     </td>
                                     <td>
-                                        <button class="btn btn-danger" data-target="#removeaccount"
-                                            data-toggle="modal"><i class="fa fa-minus-circle"
-                                                aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>1222222222</td>
-                                    <td>Nguyễn Xuân Anh</td>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>037464533</td>
-                                    <td>
-                                        <button class="btn btn-warning" data-target="#editAccount"
-                                            data-toggle="modal"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger" data-target="#removeaccount"
-                                            data-toggle="modal"><i class="fa fa-minus-circle"
-                                                aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>1222222222</td>
-                                    <td>Nguyễn Xuân Anh</td>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>037464533</td>
-                                    <td>
-                                        <button class="btn btn-warning" data-target="#editAccount"
-                                            data-toggle="modal"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger" data-target="#removeaccount"
-                                            data-toggle="modal"><i class="fa fa-minus-circle"
-                                                aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>1222222222</td>
-                                    <td>Nguyễn Xuân Anh</td>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>037464533</td>
-                                    <td>
-                                        <button class="btn btn-warning" data-target="#editAccount"
-                                            data-toggle="modal"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger" data-target="#removeaccount"
-                                            data-toggle="modal"><i class="fa fa-minus-circle"
-                                                aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>1222222222</td>
-                                    <td>Nguyễn Xuân Anh</td>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>037464533</td>
-                                    <td>
-                                        <button class="btn btn-warning" data-target="#editAccount"
-                                            data-toggle="modal"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger" data-target="#removeaccount"
-                                            data-toggle="modal"><i class="fa fa-minus-circle"
-                                                aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>1222222222</td>
-                                    <td>Nguyễn Xuân Anh</td>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>037464533</td>
-                                    <td>
-                                        <button class="btn btn-warning" data-target="#editAccount"
-                                            data-toggle="modal"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger" data-target="#removeaccount"
-                                            data-toggle="modal"><i class="fa fa-minus-circle"
-                                                aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>1222222222</td>
-                                    <td>Nguyễn Xuân Anh</td>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>037464533</td>
-                                    <td>
-                                        <button class="btn btn-warning" data-target="#editAccount"
-                                            data-toggle="modal"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger" data-target="#removeaccount"
-                                            data-toggle="modal"><i class="fa fa-minus-circle"
-                                                aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>1222222222</td>
-                                    <td>Nguyễn Xuân Anh</td>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>037464533</td>
-                                    <td>
-                                        <button class="btn btn-warning" data-target="#editAccount"
-                                            data-toggle="modal"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger" data-target="#removeaccount"
-                                            data-toggle="modal"><i class="fa fa-minus-circle"
-                                                aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>1222222222</td>
-                                    <td>Nguyễn Xuân Anh</td>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>037464533</td>
-                                    <td>
-                                        <button class="btn btn-warning" data-target="#editAccount"
-                                            data-toggle="modal"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger" data-target="#removeaccount"
-                                            data-toggle="modal"><i class="fa fa-minus-circle"
-                                                aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>1222222222</td>
-                                    <td>Nguyễn Xuân Anh</td>
-                                    <td>conmeongungoc123@gmail.com</td>
-                                    <td>037464533</td>
-                                    <td>
-                                        <button class="btn btn-warning" data-target="#editAccount"
-                                            data-toggle="modal"><i class="fa fa-wrench" aria-hidden="true"></i></button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-danger" data-target="#removeaccount"
+                                        <button th:href="@{/manager/manager-account/removeAccount/(taikhoan=${account.getTaiKhoan()})}" class="btn btn-danger" data-target="#removeaccount"
                                             data-toggle="modal"><i class="fa fa-minus-circle"
                                                 aria-hidden="true"></i></button>
                                     </td>
@@ -237,24 +87,20 @@
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="col-12 p-2">
-                                            <h4>Tên đăng nhập</h4> <input class=" input-group  p-2"
-                                                type="text" placeholder="Nhập Email hoặc số điện thoại">
+                                            <h4>Tên đăng nhập</h4> <input class=" input-group  p-2" type="text"
+                                                placeholder="Nhập Email hoặc số điện thoại">
                                         </div>
                                         <div class="col-12 p-2">
                                             <h4>Mật khẩu</h4> <input class=" input-group  p-2" type="text"
                                                 placeholder="Nhập Mật khẩu">
                                         </div>
                                         <div class="col-12 p-2">
-                                            <h4>Họ và tên phụ huynh</h4> <input class=" input-group  p-2"
-                                                type="text" placeholder="Nhập Email hoặc số điện thoại">
-                                        </div>
-                                        <div class="col-12 p-2">
-                                            <h4>Email</h4> <input class=" input-group  p-2" type="text"
-                                                placeholder="Nhập Mật khẩu">
-                                        </div>
-                                        <div class="col-12 p-2">
-                                            <h4>Số điện thoại</h4> <input class=" input-group  p-2"
-                                                type="text" placeholder="Nhập Email hoặc số điện thoại">
+                                            <h4>Mã chức năng</h4>
+                                            <select id="IDrole" name="IDrole" class="input-group  p-2" required>
+                                                <option value="ADMIN">ADMIN</option>
+                                                <option value="KHACHHANG">KHÁCH HÀNG</option>
+                                                <option value="NHANVIEN">NHÂN VIÊN</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -282,64 +128,61 @@
                                 <!-- Modal body -->
                                 <div class="modal-body">
                                     <div class="row">
-                                        <div class="col-12 p-2">
-                                            <h4>Tên đăng nhập</h4> <input class=" input-group  p-2"
-                                                type="text" placeholder="Nhập Email hoặc số điện thoại">
-                                        </div>
-                                        <div class="col-12 p-2">
-                                            <h4>Mật khẩu</h4> <input class=" input-group  p-2" type="text"
-                                                placeholder="Nhập Mật khẩu">
-                                        </div>
-                                        <div class="col-12 p-2">
-                                            <h4>Họ và tên phụ huynh</h4> <input class=" input-group  p-2"
-                                                type="text" placeholder="Nhập Email hoặc số điện thoại">
-                                        </div>
-                                        <div class="col-12 p-2">
-                                            <h4>Email</h4> <input class=" input-group  p-2" type="text"
-                                                placeholder="Nhập Mật khẩu">
-                                        </div>
-                                        <div class="col-12 p-2">
-                                            <h4>Số điện thoại</h4> <input class=" input-group  p-2"
-                                                type="text" placeholder="Nhập Email hoặc số điện thoại">
+                                        <div class="row">
+                                            <div class="col-12 p-2">
+                                                <h4>Tên đăng nhập</h4> <input class=" input-group  p-2" type="text"
+                                                    placeholder="Nhập Email hoặc số điện thoại">
+                                            </div>
+                                            <div class="col-12 p-2">
+                                                <h4>Mật khẩu</h4> <input class=" input-group  p-2" type="text"
+                                                    placeholder="Nhập Mật khẩu">
+                                            </div>
+                                            <div class="col-12 p-2">
+                                                <h4>Mã chức năng</h4>
+                                                <select id="IDrole" name="IDrole" class="input-group  p-2" required>
+                                                    <option value="ADMIN">ADMIN</option>
+                                                    <option value="KHACHHANG">KHÁCH HÀNG</option>
+                                                    <option value="NHANVIEN">NHÂN VIÊN</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- Modal footer -->
-                                <div class="modal-footer">
-                                    <button type="button" data-toggle="modal" class="btn btn-info">Xác nhận</button>
-                                    <button type="button" data-toggle="modal" data-dismiss="modal"
-                                        class="btn btn-danger">Hủy</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Edit Account -->
-                <!-- Remove Account -->
-                <div class="payment">
-                    <div class="modal" id="removeaccount">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
-                            <div class="modal-content">
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Xóa tài khoản</h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                </div>
-                                <!-- Modal body -->
-                                <div class="modal-body">
-                                    <h2>Bạn có muốn xóa tài khoản này không?</h2>
-                                </div>
-                                <!-- Modal footer -->
-                                <div class="modal-footer">
-                                    <button type="button" data-toggle="modal" class="btn btn-info">Có</button>
-                                    <button type="button" data-toggle="modal" data-dismiss="modal"
-                                        class="btn btn-danger">Không</button>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" data-toggle="modal" class="btn btn-info">Xác nhận</button>
+                                        <button type="button" data-toggle="modal" data-dismiss="modal"
+                                            class="btn btn-danger">Hủy</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- End remove Account -->
+                    <!-- End Edit Account -->
+                    <!-- Remove Account -->
+                    <div class="payment">
+                        <div class="modal" id="removeaccount">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Xóa tài khoản</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <h2>Bạn có muốn xóa tài khoản này không?</h2>
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" data-toggle="modal" class="btn btn-info">Có</button>
+                                        <button type="button" data-toggle="modal" data-dismiss="modal"
+                                            class="btn btn-danger">Không</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End remove Account -->
     </main>
 </body>
 

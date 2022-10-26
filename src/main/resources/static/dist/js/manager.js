@@ -19,6 +19,7 @@ $(document).ready(function () {
         event.preventDefault();
         var href = $(this).attr('href');
         $.get(href, function (admin, status) {
+            $('.form-editUser #id').val(admin.id);
             $('.form-editUser #fullname').val(admin.fullname);
             $('.form-editUser #email').val(admin.email);
             $('.form-editUser #phonenumber').val(admin.phonenumber);
@@ -37,3 +38,20 @@ $(document).ready(function () {
         $('#removeaccount').modal(); // id modal
     });
 });
+
+function find(){
+    var key = $('#searchAdmin').val();
+    setTimeout(1000);
+    $.ajax({
+        type: "POST",
+        url: "/manager/manager-user/searchAdmin",
+        data: "key=" + key,
+        success: function (data) {
+            $('#reloaddbAdmin').replaceWith(data);
+            $('#searchAdmin').val(key);
+        },
+        error: function (data) {
+            alert("lỗi!");
+        }
+    });
+}

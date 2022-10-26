@@ -34,25 +34,29 @@ public class CustomerServiceImp implements CustomerService{
     public int removeCustomer(int id){
         return customerDAO.removeCustomer(id);
     }
-    @Override
 
-    public Customer findIDCustomers(String TaiKhoan){
-        return customerDAO.findIDCustomers(TaiKhoan).get(0);
-    }
     @Override
-    public List<Customer> checkIDCustomers(int id){
-        return customerDAO.checkIDCustomers(id);
-
     public Customer inforCT(String taikhoan) {
         return customerDAO.infoCustomer(taikhoan);
     }
+
     @Override
     public Customer inforCT(int idkh) {
         return customerDAO.infoCustomer(idkh);
     }
 
     @Override
-    public int addNullCustomer(Customer customer) {
+    public Customer findIDCustomers(String TaiKhoan){
+        return customerDAO.findIDCustomers(TaiKhoan).get(0);
+    }
+
+    @Override
+    public List<Customer> checkIDCustomers(int id){
+        return customerDAO.checkIDCustomers(id);
+    }
+
+    @Override
+    public int addNullCustomer(Customer customer){
         return customerDAO.addNullCustomer(customer);
     }
 }

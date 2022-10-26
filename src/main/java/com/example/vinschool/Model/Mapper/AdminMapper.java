@@ -12,7 +12,7 @@ public class AdminMapper implements RowMapper<Admin>{
     @Override
     public Admin mapRow(ResultSet rs, int rowNum) throws SQLException {
         Admin Admin = new Admin();
-        Admin.setId(rs.getInt("IDADMIN"));
+        Admin.setId(rs.getInt(String.valueOf("IDADMIN")));
         Admin.setFullname(rs.getString("Ten")); 
         // `Ten`, `NgaySinh`, `CCCD`, `Phone`, `Email`, `GioiTinh`, `TaiKhoan`
         Admin.setBirthday(rs.getString("NgaySinh"));

@@ -36,14 +36,17 @@ public class AdminServiceImp implements AdminService{
     }
 
     @Override
+    public Admin showAdmin(String TaiKhoan) {
+        return AdminDAO.showAdmin(TaiKhoan);
+    }
+
+    @Override
     public Admin findOneById(int id){
         return AdminDAO.findById(id).get(0);
     }
 
     @Override
-    public List<Admin> searchByFullName(String fullname){
-        return AdminDAO.searchByFullName(fullname);
-    public Admin showAdmin(String TaiKhoan) {
-        return AdminDAO.showAdmin(TaiKhoan);
+    public List<Admin> searchByKeyWord(String keyword){
+        return AdminDAO.searchByKeyWord(keyword);
     }
 }

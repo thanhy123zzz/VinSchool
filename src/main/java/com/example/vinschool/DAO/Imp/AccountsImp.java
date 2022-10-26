@@ -30,4 +30,11 @@ public class AccountsImp implements AccountsDao {
         String query = "insert into accounts(TaiKhoan,MatKhau,IDrole) values(?,?,?)";
         return jdbctemplate.update(query,new Object[]{accounts.getTaiKhoan(),accounts.getMatKhau(),accounts.getIDrole()});
     }
+
+    @Override
+    public List<Accounts> showList(){
+        String sql = "SELECT * FROM accounts";
+        List<Accounts> list = jdbctemplate.query(sql,new AccountsMapper());
+        return list;
+    }
 }

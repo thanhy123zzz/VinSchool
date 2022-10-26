@@ -9,7 +9,7 @@ public interface AdminService {
     int addAdmin(Admin Admin);
     int editAdmin(Admin Admin);
     int removeAdmin(int id);
-    Admin findOneById(int id);
-    List<Admin> searchByFullName(String fullname);
     Admin showAdmin(String TaiKhoan);
+    Admin findOneById(int id);
+    List<Admin> searchByKeyWord(String keyword);
 }

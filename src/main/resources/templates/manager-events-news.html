@@ -91,7 +91,6 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-12 p-2">
-
                                 <h4>Title</h4> <input name="title" class=" input-group text-uppercase p-2" type="text"
                                                               placeholder="Title">
                             </div>
@@ -107,7 +106,6 @@
                             </div>
 
                             <div class="col-12 p-2">
-
                                 <h4>Overview</h4> <textarea name="overview" class=" input-group text-uppercase p-2" placeholder="Overview">
                             </textarea>
                             </div>
@@ -151,12 +149,11 @@
                         <div class="row">
                             <input name = "idTin" th:value="${tin.getIdTin()}" style="display: none">
                             <div class="col-12 p-2">
-
                                 <h4>Title</h4> <input name="title" th:value="${tin.getTitle()}" class=" input-group text-uppercase p-2" type="text"
                                                       placeholder="Title">
                             </div>
                             <div class="col-12 p-2">
-                                <h4>Subtitle</h4> <input th:value="${tin.getSubTitle()}" name="subTitle" class=" input-group text-uppercase p-2" type="text"
+                                <h4>Subtitle</h4> <input th:value="${tin.getSubTitle()}" name="subTitle" class=" input-group  p-2" type="text"
                                                          placeholder="Subtitle">
                             </div>
                             <div class="col-12 p-2">
@@ -185,7 +182,7 @@
                             </div>
                             </div>
                             <div class="col-12 p-2">
-                                <h4>Overview</h4> <textarea th:text="${tin.getOverview()}" name="overview" class=" input-group text-uppercase p-2" placeholder="Overview">
+                                <h4>Overview</h4> <textarea th:text="${tin.getOverview()}" name="overview" class=" input-group  p-2" placeholder="Overview">
                             </textarea>
                             </div>
                             <div class="col-12 p-2">

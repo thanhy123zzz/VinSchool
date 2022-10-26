@@ -105,7 +105,7 @@
 
 
                         <div class="col-12">
-                            <form th:action="@{/insert-danhgia}" method="post" th:object="${DanhGia}">
+                            <form th:action="@{/insert-danhgia}" method="post">
                                 <hr class="bg-info">
                                 <h4 class="text-head-vinschool ">Viết đánh giá</h4>
                                 <hr class="bg-info">
@@ -129,9 +129,9 @@
                                 <div class="col-12 mt-1">
                                     <div class="row mb-2 ml-2">
                                     <img class="mb-2 ml-2" src="/images/id/teacher.png" alt="">
-                                        <h5 class="h5"  th:if="${#authorization.expression('isAuthenticated()')}" th:text="${#authentication.getPrincipal().getUsername()}">
+                                        <h5 style="padding-top: 1%;padding-left: 2%;padding-bottom: 0;" class="h5"  th:if="${#authorization.expression('isAuthenticated()')}" th:text="${#authentication.getPrincipal().getUsername()}">
                                         </h5>
-                                        <h5 class="h5"  th:unless="${#authorization.expression('isAuthenticated()')}"> Đăng nhập trước khi đánh giá!
+                                        <h5 style="padding-top: 1%;padding-left: 2%;padding-bottom: 0;" class="h5"  th:unless="${#authorization.expression('isAuthenticated()')}"> Đăng nhập trước khi đánh giá!
                                         </h5>
                                         <input name="TaiKhoan" th:if="${#authorization.expression('isAuthenticated()')}" th:value="${#authentication.getPrincipal().getUsername()}" type="text" style="display: none">
                                     </div>

@@ -6,5 +6,7 @@ import com.example.vinschool.Model.AdmissionTicket;
 
 public interface AdmissionTiketDAO {
     int addAdmissionTicket(AdmissionTicket AdmissionTicket);
-    List<AdmissionTicket> checkIDCustomers(int id);
+    Boolean checkIDCustomers(int id);
+    List<AdmissionTicket> showList();
+    List<AdmissionTicket> FindList(int id);
 }
