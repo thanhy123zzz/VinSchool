@@ -30,7 +30,7 @@
             <div class="row search-top mt-4">
               <div class="input-group">
                 <div class="col-8">
-                  <input type="text" class="input-group m-0 p-2" placeholder="Nhập thông tin admin cần tìm...">
+                  <input type="text" id="searchAdmin" th:onkeyup="find()" class="input-group m-0 p-2" placeholder="Nhập thông tin admin cần tìm...">
                 </div>
                 <div class="col-2">
                   <i class="fa fa-search m-0 p-2"></i>
@@ -42,7 +42,7 @@
                 </div>
               </div>
             </div>
-            <table class="table table-bordered text-light mt-4">
+            <table class="table table-bordered text-light mt-4" id="reloaddbAdmin">
               <thead>
                 <tr>
                   <th>Họ và tên</th>
@@ -54,7 +54,7 @@
                   <th>Tài khoản</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody >
                 <tr th:each="admin: ${listAdmin}">
                   <th th:text="${admin.id}" hidden></th>
                   <th th:text="${admin.fullname}"></th>
@@ -104,6 +104,7 @@
                       class="fa fa-plus-circle" aria-hidden="true"></i> Thêm
                     mới</button>
                 </div>
+                
               </div>
             </div>
             <table class="table table-bordered text-light mt-4">
@@ -298,7 +299,7 @@
               <!-- Modal body -->
               <div class="modal-body">
                 <div class="row">
-                  <div class="col-12 p-2">
+                  <div class="col-12 p-2" hidden>
                     <h4>ID</h4> <input class=" input-group  p-2" type="number" readonly
                       id="id" name="id" value="">
                     <label ></label>
@@ -316,7 +317,7 @@
                   <div class="col-12 p-2">
                     <h4>Giới tính</h4>
                     <select id="gender" name="gender" class="input-group  p-2">
-                      <option value="1">Nam</option>
+                      <option selected value="1">Nam</option>
                       <option value="0">Nữ</option>
                     </select>
                     <label for="gender"></label>

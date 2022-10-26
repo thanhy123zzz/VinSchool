@@ -31,13 +31,22 @@ public class AdminImp implements AdminDAO {
     }
 
     @Override
-    public int editAdmin(Admin Admin) {
+    public int editAdmin(Admin Admin){
         String sql = "UPDATE `vinschool`.`admin` SET  `Ten` = ?, `NgaySinh` = ?, `CCCD` = ?, `Phone` = ?, `Email` = ?, `GioiTinh` = ?, `TaiKhoan` = ? WHERE `IDADMIN` = ?";
-        return jdbctemplate.update(sql, new Object[] { Admin.getFullname(), Admin.getBirthday(), Admin.getCitizenId(),
-                Admin.getPhonenumber(), Admin.getEmail(), Admin.getGender(), Admin.getTaiKhoan(), Admin.getId() });
+        return jdbctemplate.update(sql, new Object[] {Admin.getFullname(),Admin.getBirthday(),Admin.getCitizenId(),
+        Admin.getPhonenumber(),Admin.getEmail(),Admin.getGender(),Admin.getTaiKhoan(),Admin.getId()});
     }
 
     @Override
+    public Admin showAdmin(String TaiKhoan) {
+        String sql = "SELECT * FROM admin where TaiKhoan='"+TaiKhoan+"'";
+        List<Admin> list = jdbctemplate.query(sql, new AdminMapper());
+        if(list.size()==1) {
+            return list.get(0);
+        }
+        else return null;
+    }
+
     public int removeAdmin(int id) {
         String sql = "DELETE from `vinschool`.`admin` WHERE IDADMIN = " + id + "";
         return jdbctemplate.update(sql);
@@ -51,8 +60,8 @@ public class AdminImp implements AdminDAO {
     } 
 
     @Override
-    public List<Admin> searchByFullName(String fullname) {
-        String sql = "SELECT * FROM vinschool.admin WHERE Ten like '%"+fullname+"%'";
+    public List<Admin> searchByKeyWord(String keyword) {
+        String sql = "SELECT * FROM admin where concat_ws('',IDADMIN,Ten,NgaySinh,CCCD,Phone,Email) like '%"+keyword+"%'";
         List<Admin> list = jdbctemplate.query(sql, new AdminMapper());
         return list;
     }

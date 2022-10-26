@@ -9,6 +9,9 @@ public interface CustomerService {
     int addCustomer(Customer customer);
     int editCustomer(Customer customer);
     int removeCustomer(int id);
+    Customer inforCT(String taikhoan);
+    Customer inforCT(int idkh);
     Customer findIDCustomers(String TaiKhoan);
     List<Customer> checkIDCustomers(int id);
+    int addNullCustomer(Customer customer);
 }

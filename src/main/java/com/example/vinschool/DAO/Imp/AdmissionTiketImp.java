@@ -28,9 +28,29 @@ public class AdmissionTiketImp implements AdmissionTiketDAO {
     }
 
     @Override
-    public List<AdmissionTicket> checkIDCustomers(int id) {
+    public Boolean checkIDCustomers(int id) {
         String sql = "SELECT `idPhieu`,`tenPhuHuynh`,pdk.`phone`,`DiaChi`,`DonViCongTac`,pdk.`email`,`tenHocSinh`,`ngaySinhHocSinh`,`lophoc`,`note`,pdk.`idkh` FROM phieudangky pdk join khachhang kh on kh.IDKH = pdk.idkh where kh.IDKH = "+ id + "";
-                return jdbctemplate.query(sql, new AdmissionTicketMapper());
+                List<AdmissionTicket> list = jdbctemplate.query(sql, new AdmissionTicketMapper());
+                if(list.size()>0){
+                    return true;
+                }else{
+                    return false;
+                }
+    }
+    public List<AdmissionTicket> FindList(int id) {
+        String sql = "SELECT `idPhieu`,`tenPhuHuynh`,pdk.`phone`,`DiaChi`,`DonViCongTac`,pdk.`email`,`tenHocSinh`,`ngaySinhHocSinh`,`lophoc`,`note`,pdk.`idkh` FROM phieudangky pdk join khachhang kh on kh.IDKH = pdk.idkh where kh.IDKH = "+ id + "";
+                List<AdmissionTicket> list = jdbctemplate.query(sql, new AdmissionTicketMapper());
+                if(list.size()>0){
+                    return list;
+                }else{
+                    return null;
+                }
+    }
+
+    @Override
+    public List<AdmissionTicket> showList(){
+        String sql = "Select * from `vinschool`.`phieudangky`";
+        return jdbctemplate.query(sql, new AdmissionTicketMapper());
     }
 
 }

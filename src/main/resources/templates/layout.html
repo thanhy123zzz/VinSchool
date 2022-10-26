@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title layout:title-pattern="$CONTENT_TITLE"></title>
-  <link rel="shortcut icon" href="images/logo/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title layout:title-pattern="$CONTENT_TITLE"></title>
+    <link rel="shortcut icon" href="images/logo/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="dist/css/bootstrap.css">
   <link rel="stylesheet" href="dist/css/style.css">
@@ -24,15 +24,33 @@
   <div th:replace="fragments/header.html :: header"></div>
   <!--end header-->
 
-  <!--main-->
-  <div layout:fragment="content"></div>
-  <!--footer-->
-  <div th:replace="fragments/footer.html :: footer"></div>
-  <!--end footer-->
-  <!--end main-->
-  <script src="/dist/js/bootstrap.min.js"></script>
-  <script src="dist/js/popper.min.js"></script>
-  <script th:src="@{/dist/js/bootstrap.min.js}"></script>
+<!--main-->
+<div layout:fragment="content"></div>
+<!--footer-->
+<div th:replace="fragments/footer.html :: footer"></div>
+<!--end footer-->
+<!--end main-->
+
+<script src="/dist/js/bootstrap.min.js"></script>
+<script src="dist/js/popper.min.js"></script>
+<script th:src="@{/dist/js/bootstrap.min.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+function load_news(){
+    $.ajax({
+        type : "POST",
+        url: "/load-news",
+        data: "limit="+$('#limit').val(),
+        success: function(data) {
+            $('#news').replaceWith(data);
+            document.getElementById("limit").val();
+        },
+        error: function(data){
+            alert("lỗi!");
+        }
+    });
+}
+</script>
 </body>
 
 </html>

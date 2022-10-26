@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.vinschool.DAO.AdminDAO;
 import com.example.vinschool.Model.Admin;
 import com.example.vinschool.Service.AdminService;
+import org.springframework.stereotype.Service;
 
 @Service
 public class AdminServiceImp implements AdminService{
@@ -35,12 +36,17 @@ public class AdminServiceImp implements AdminService{
     }
 
     @Override
+    public Admin showAdmin(String TaiKhoan) {
+        return AdminDAO.showAdmin(TaiKhoan);
+    }
+
+    @Override
     public Admin findOneById(int id){
         return AdminDAO.findById(id).get(0);
     }
 
     @Override
-    public List<Admin> searchByFullName(String fullname){
-        return AdminDAO.searchByFullName(fullname);
+    public List<Admin> searchByKeyWord(String keyword){
+        return AdminDAO.searchByKeyWord(keyword);
     }
 }

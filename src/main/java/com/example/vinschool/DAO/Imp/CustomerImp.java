@@ -32,18 +32,30 @@ public class CustomerImp implements CustomerDAO {
     }
 
     @Override
-    public int editCustomer(Customer customer) {
-        String sql = "UPDATE `vinschool`.`khachhang` SET  `Ten` = ?, `NgaySinh` = ?, `CCCD` = ?, `Phone` = ?, `Email` = ?, `GioiTinh` = ?, `TaiKhoan` = ? WHERE `IDKH` = ?";
-        return jdbctemplate.update(sql,
-                new Object[] { customer.getFullname(), customer.getBirthday(), customer.getCitizenId(),
-                        customer.getPhonenumber(), customer.getEmail(), customer.getGender(), customer.getTaiKhoan(),
-                        customer.getId() });
+    public int editCustomer(Customer customer){
+        String sql = "UPDATE `vinschool`.`khachhang` SET  `Ten` = ?, `NgaySinh` = ?, `CCCD` = ?, `Phone` = ?, `Email` = ?, `GioiTinh` = ?, `TaiKhoan` = ? WHERE `IDNV` = ?";
+        return jdbctemplate.update(sql, new Object[] {customer.getFullname(),customer.getBirthday(),customer.getCitizenId(),
+        customer.getPhonenumber(),customer.getEmail(),customer.getGender(),customer.getTaiKhoan(),customer.getId()});
     }
 
     @Override
-    public int removeCustomer(int id) {
-        String sql = "DELETE from `vinschool`.`khachhang` WHERE IDKH = ?";
-        return jdbctemplate.update(sql);
+	public int removeCustomer(int id) {
+		String sql = "DELETE from `vinschool`.`khachhang` WHERE IDKH = ?";
+		return jdbctemplate.update(sql);
+	}
+
+    @Override
+    public Customer infoCustomer(String taiKhoan) {
+        String query = "select*from khachhang where TaiKhoan ='"+taiKhoan+"'";
+        List<Customer> list = jdbctemplate.query(query,new CustomerMapper());
+        return list.get(0);
+    }
+
+    @Override
+    public Customer infoCustomer(int idkh) {
+        String query = "select*from khachhang where IDKH ="+idkh;
+        List<Customer> list = jdbctemplate.query(query,new CustomerMapper());
+        return list.get(0);
     }
 
     @Override
@@ -58,4 +70,12 @@ public class CustomerImp implements CustomerDAO {
         String sql = "SELECT pdk.IDKH,Ten,NgaySinh,CCCD,kh.Phone,kh.Email,GioiTinh,kh.TaiKhoan FROM phieudangky pdk join khachhang kh on kh.IDKH = pdk.idkh where pdk.IDKH = "+id+";";
         return jdbctemplate.query(sql, new CustomerMapper());
     }
+    @Override
+    public int addNullCustomer(Customer customer){
+        String sql = "INSERT INTO `vinschool`.`khachhang` (`Ten`,`TaiKhoan`) VALUES (?,?);";
+        return jdbctemplate.update(sql, new Object[] {customer.getFullname(),customer.getTaiKhoan()});
+    }
+    
+
+    
 }

@@ -36,6 +36,12 @@ public class AdmissionTicket extends Customer{
 
     public AdmissionTicket() {
     }
+
+    public AdmissionTicket(int idTiket,String none){
+        this.idTicket = idTiket;
+        /* None khong truyen*/
+    }
+
     public AdmissionTicket(int idCus){
         super(idCus);
     }

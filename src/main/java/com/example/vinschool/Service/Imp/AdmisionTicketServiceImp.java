@@ -21,7 +21,17 @@ public class AdmisionTicketServiceImp implements AdmisionTicketService{
     }
 
     @Override
-    public List<AdmissionTicket> checkIDCustomers(int id){
+    public Boolean checkIDCustomers(int id) {
         return admissionTiketDAO.checkIDCustomers(id);
+    }
+
+    @Override
+    public List<AdmissionTicket> showList(){
+        return admissionTiketDAO.showList();
+    }
+
+    @Override
+    public List<AdmissionTicket> FindList(int id){
+        return admissionTiketDAO.FindList(id);
     }
 }
